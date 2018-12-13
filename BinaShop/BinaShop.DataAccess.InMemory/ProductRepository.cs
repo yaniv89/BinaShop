@@ -58,7 +58,7 @@ namespace BinaShop.DataAccess.InMemory
                 throw new Exception("מוצר לא נמצא");
             }
         }
-        public IQueryable<Product> Collectiom()
+        public IQueryable<Product> Collection()
         {
             return products.AsQueryable();
         }

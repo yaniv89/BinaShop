@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BinaShop.Core.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>עמוד ניהול</h2>
+
+<p>
+    @Html.ActionLink("הוסף מוצר", "Create")
+</p>
+<div class="col-md-10">
+    <table class="table">
+        <thead class="thead-inverse">
+
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th></th>
+
+            </tr>
+
+    </thead>
+        
+@foreach (var item in Model) {
+    <tr>
+        <td scope="col">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td scope="col">
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td scope="col">
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td scope="col">
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td scope="col">
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td scope="col">
+            @Html.ActionLink("ערוך מוצר", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("הסר מוצר", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+    </div>
