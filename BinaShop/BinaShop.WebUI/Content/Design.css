@@ -1,0 +1,14 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: :border-box;
+}
+
+html {
+    background-color: #fff;
+    color: #6c6c6c;
+    font-family: 'Bellefair','Arial',sans-serif;
+    font font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}

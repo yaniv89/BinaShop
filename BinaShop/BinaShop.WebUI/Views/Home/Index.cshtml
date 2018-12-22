@@ -1,31 +1,88 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout=null;
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <link rel=stylesheet type="text/css" href="Vendors/Css/normalize.rtl.css">
+    <link rel=stylesheet type="text/css" href="~/Content/038 Grid.css">
+    <link rel=stylesheet type="text/css" href="~/Content/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair&amp;subset=hebrew" rel="stylesheet">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    <title>לוכדי החלומות של בינה</title>
+    </head>
+<body>
+    <header>
+        <nav>
+            <div class="row">
+                <div class="logo">
+                    <img src="~/Content/Bina_Logo.png" alt="לוגו הלוכדים של בינה">
+                </div>
+                <ul class="main-nav">
+                    <li><a href="#">לוכדי חלומות</a></li>
+                    <li><a href="#">סדנאת לוכדי חלומות</a></li>
+                    <li><a href="/ProductCategoryManager/Index">ניהול קטגוריות</a></li>
+                    <li><a href="#">צור קשר</a></li>
+                    <li><a href="/ProductManager/Index">מנהל</a></li>
+                    <li><a href="#">התחבר</a></li>
+                    <li><a href="#">הרשם</a></li>
+
+                </ul>
+            </div>
+        </nav>
+        <div class="bina-text-box">
+            <h1>להתראות סיוטים.<br> שלום חלומות נעימים.</h1>
+            <a class="btn btn-full" href="#">הרשם עכשיו</a>
+            <a class="btn btn-ghost" href="#">הראה לי עוד</a>
+        </div>
+
+    </header>
+
+    <section class="section-features">
+        <div class="row">
+
+            <h2>הלוכדים של בינה</h2>
+            <p class="long-copy">
+                הלוכדים של בינה נעשים בעבודת יד, לכן כל לוכד הוא מיוחד!
+            </p>
+        </div>
+
+        <div clas="row">
+            <div class="col span-1-of-4 box">
+                <div class="icon1 big-icon">
+                    <ion-icon name="heart"></ion-icon>
+                </div>
+                <h3>לוכדי חלומות</h3>
+                <p>לוכדי חלומות במגוון עיצובים מקוריים וייחודיים שיבריחו את הסיוטים!</p>
+            </div>
+            <div class="col span-1-of-4 box">
+                <div class="icon2 big-icon">
+                    <ion-icon name="color-palette"></ion-icon>
+                </div>
+                <h3>סדנאות יצירה.</h3>
+                <p>סדנאות יצירת לוכד חלומות אישי לילדים &mdash; הנאה מובטחת!</p>
+            </div>
+            <div class="col span-1-of-4 box">
+                <div class="icon3 big-icon">
+                    <ion-icon name="photos"></ion-icon>
+                </div>
+                <h3>תמונות מדליקות</h3>
+                <p>תמונות מדליקות בעיצוב מקורי, שנון ומצחיק שמוסיף אוירה הביתה.</p>
+            </div>
+            <div class="col span-1-of-4 box">
+                <div class="icon4 big-icon">
+                    <ion-icon name="send"></ion-icon>
+                </div>
+                <h3>משלוח מהיר</h3>
+                <p>לרוכשים מובטח משלוח מהיר, ככל שתמהרו להזמין, הלוכד יגיע מהר יותר.</p>
+            </div>
+        </div>
+
+    </section>
+    <script src="https://unpkg.com/ionicons@4.5.0/dist/ionicons.js"></script>
+</body>
+
+
+</html>

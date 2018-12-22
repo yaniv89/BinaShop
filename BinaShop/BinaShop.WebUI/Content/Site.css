@@ -1,6 +1,19 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: #6c6c6c;
+    font-family: 'Bellefair','Arial',sans-serif;
+    font font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+body {
+    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +35,4 @@ select,
 textarea {
     max-width: 280px;
 }
+
