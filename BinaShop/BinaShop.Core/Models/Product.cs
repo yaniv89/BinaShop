@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace BinaShop.Core.Models
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public string Id { get; set; }
         
         [StringLength(30)]
         [DisplayName("שם המוצר")]
@@ -27,9 +26,5 @@ namespace BinaShop.Core.Models
         [DisplayName("תמונה")]
         public string Image { get; set; }
 
-        public Product()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
     }
 }
