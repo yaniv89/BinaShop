@@ -1,4 +1,5 @@
-﻿using BinaShop.Core.Models;
+﻿using BinaShop.Core.Contracts;
+using BinaShop.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BinaShop.DataAccess.InMemory
 {
-    public class InMemoryRepository<D> where D : BaseEntity
+    public class InMemoryRepository<D> : IRepository<D> where D : BaseEntity
     {
         ObjectCache cache = MemoryCache.Default;
         List<D> items;

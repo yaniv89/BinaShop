@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BinaShop.Core.Contracts;
 using BinaShop.Core.Models;
 using BinaShop.Core.ViewModels;
 using BinaShop.DataAccess.InMemory;
@@ -11,13 +12,13 @@ namespace BinaShop.WebUI.Controllers
 {
     public class ProductManagerController : Controller
     {
-        InMemoryRepository<Product> context;
-        InMemoryRepository<ProductCategory> productCategories;
+        IRepository<Product> context;
+        IRepository<ProductCategory> productCategories;
 
-        public ProductManagerController()
+        public ProductManagerController(IRepository<Product> productContext, IRepository<ProductCategory> productCategotyContext)
         {
-            context=new InMemoryRepository<Product>();
-            productCategories = new InMemoryRepository<ProductCategory>();
+            context= productContext;
+            productCategories = productCategotyContext;
         }
         // GET: ProductManager
         public ActionResult Index()
