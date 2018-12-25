@@ -62,7 +62,6 @@ namespace BinaShop.WebUI.Controllers
         public ActionResult Edit(string Id)
         {
             Product product = context.Find(Id);
-
             if (product == null)
             {
                 return HttpNotFound();
@@ -78,7 +77,7 @@ namespace BinaShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Product product, string Id, HttpPostedFile file)
+        public ActionResult Edit(Product product, string Id, HttpPostedFileBase file)
         {
             Product productToEdit = context.Find(Id);
 
@@ -93,7 +92,7 @@ namespace BinaShop.WebUI.Controllers
                     return View(product);
                 }
 
-                if(file!=null)
+                if (file != null)
                 {
                     productToEdit.Image = product.Id + Path.GetExtension(file.FileName);
                     file.SaveAs(Server.MapPath("//Content//ProductImages//") + productToEdit.Image);
