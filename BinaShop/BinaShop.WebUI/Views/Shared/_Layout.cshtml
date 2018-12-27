@@ -3,49 +3,51 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title </title>
 
 
-    <link rel="stylesheet" id="bootstrap.rtl.full" href="~/Content/bootstrap.rtl.full.css" type="text/css" />
-    <link rel="stylesheet" id="bootstrap.rtl.full.min" href="~/Content/bootstrap.rtl.full.min.css" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Bellefair&amp;subset=hebrew" rel="stylesheet">
+
     <link rel=stylesheet type="text/css" href="Vendors/Css/normalize.rtl.css">
-    <link rel=stylesheet type="text/css" href="~/Content/style.css">
+    <link rel=stylesheet type="text/css" href="~/Content/038 Grid.css">
+    <link rel=stylesheet type="text/css" href="~/Content/StyleSheet1.css">
+    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
 
-  
+
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <nav>
-        <div class="row">
-            <div class="logo">
-                <a href="/Home/Index"><img src="~/Content/Bina_Logo.png" alt="לוגו הלוכדים של בינה" /></a>
+    <header>
+        <nav>
+
+            <div class="row">
+                <div class="logo">
+                    <a href="/Home/Index"><img src="~/Content/Bina_Logo.png" style="height:67px;width:67px;margin-top:1px;" alt="לוגו הלוכדים של בינה" /></a>
+                </div>
+
+                <ul class="main-nav">
+                    <li><a href="/Home/Products">לוכדי חלומות</a></li>
+                    <li><a href="#">סדנאת לוכדי חלומות</a></li>
+                    <li><a href="/ProductCategoryManager/Index">ניהול קטגוריות</a></li>
+                    <li><a href="#">צור קשר</a></li>
+                    <li><a href="/ProductManager/Index">מנהל</a></li>
+                    <li><a href="#">התחבר</a></li>
+                    <li><a href="#">הרשם</a></li>
+
+                </ul>
             </div>
-
-            <ul class="main-nav navbar-fixed-top">
-                <li><a href="#">לוכדי חלומות</a></li>
-                <li><a href="#">סדנאת לוכדי חלומות</a></li>
-                <li><a href="/ProductCategoryManager/Index">ניהול קטגוריות</a></li>
-                <li><a href="#">צור קשר</a></li>
-                <li><a href="/ProductManager/Index">מנהל</a></li>
-                <li><a href="#">התחבר</a></li>
-                <li><a href="#">הרשם</a></li>
-
-            </ul>
-        </div>
-    </nav>
-   
+        </nav>
+    </header>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - יניב אבו</p>
-        </footer>
+
     </div>
 
+      
+    <div class="col-md-12 clearfix" />
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

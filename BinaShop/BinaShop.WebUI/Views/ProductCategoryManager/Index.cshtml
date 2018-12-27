@@ -3,13 +3,14 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("צור קטגוריה", "Create")
-</p>
-<table class="table">
+<head>
+    <link rel=stylesheet type="text/css" href="~/Content/ProductCategoryIndex.css">
+</head>
+<h2>ניהול קטגוריות</h2>
+<div class="btn-add">
+    <a class="btn btn-ghost" href="/ProductCategoryManager/Create" style="margin-right:20px;">צור קטגוריה</a>
+</div>
+<table class="table-responsive">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Category)
@@ -17,16 +18,17 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.ActionLink("ערוך קטגוריה", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("מחיקת קטגוריה", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.ActionLink("ערוך קטגוריה", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("מחיקת קטגוריה", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

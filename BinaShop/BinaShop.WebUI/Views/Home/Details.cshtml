@@ -1,38 +1,51 @@
 ﻿@model BinaShop.Core.Models.Product
 
 @{
-    ViewBag.Title =Model.Name + "פרטים";
+    ViewBag.Title = Model.Name + "פרטים";
 }
-<h2>@Html.DisplayFor(model=>model.Name)</h2>
-<div>
-    <div class="col-md-2">
-        <img class="img-responsive" src="~/Content/ProductImages/@Model.Image"/>
+
+<head>
+    <link rel=stylesheet type="text/css" href="Vendors/Css/normalize.rtl.css">
+    <link rel=stylesheet type="text/css" href="~/Content/038 Grid.css">
+    <link rel=stylesheet type="text/css" href="~/Content/DetailsHome.css">
+    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+    </head>
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
+    
+    <div class="container">
+        <div class="col-md-2">
+            <img class="img-responsive" src="~/Content/ProductImages/@Model.Image" />
+        </div>
+        <div class="col-md-10">
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    ₪@Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt></dt>
+                <dd><a href="#" class="btn btn-full">הוסף לסל</a></dd>
+
+                <dt></dt>
+
+            </dl>
+        </div>
+        <div class="btn-link">
+            @Html.ActionLink("חזרה לדף הראשי", "Index")
+            @Html.ActionLink("חזרה למוצרים", "Products")
+        </div>
     </div>
-    <div class="col-md-10">
-        <dl class="dl-horizontal">
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-
-            <dt>
-                $@Html.DisplayNameFor(model => model.Price)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Price)
-            </dd>
-
-            <dt></dt>
-            <dd><a href="#" class="btn btn-default">הוסף לסל</a></dd>
-
-            <dt></dt>
-            <dd> @Html.ActionLink("חזרה לדף הראשי", "Index")</dd>
-        </dl>
-    </div>
-</div>
-<div class="col-md-12 clearfix" />
+    <div class="col-md-12 clearfix" />

@@ -1,0 +1,26 @@
+﻿body {
+}
+.btn-link {
+    position: absolute;
+    width: 400px;
+    top: 15%;
+    right: 5%;
+}
+.container{
+    margin-right:212px;
+}
+
+.container img {
+        height: 400px;
+        width: 400px;
+    }
+.container dd,dt{
+    margin-bottom:15px;
+}
+h2{
+    position:relative;
+    top:12%;
+    right:-10%;
+    margin-bottom:40px;
+
+}

@@ -12,18 +12,18 @@ namespace BinaShop.Core.Models
     {
         
         [StringLength(30)]
-        [DisplayName("שם המוצר")]
+        [DisplayName("שם המוצר:")]
         public string Name { get; set; }
 
-        [DisplayName("תיאור")]
+        [DisplayName("תיאור:")]
         public string Description { get; set; }
 
         [Range(0, 1500)]
-        [DisplayName("מחיר")]
+        [DisplayName("מחיר:")]
         public decimal Price { get; set; }
-        [DisplayName("קטגוריה")]
+        [DisplayName("קטגוריה:")]
         public string Category { get; set; }
-        [DisplayName("תמונה")]
+        [DisplayName("תמונה:")]
         public string Image { get; set; }
 
     }

@@ -1,15 +1,16 @@
 ﻿@model BinaShop.Core.Models.ProductCategory
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "מחיקת קטגוריה";
 }
+<head>
+    <link rel=stylesheet type="text/css" href="~/Content/ProductManagerDelete.css">
+</head>
+<h2>מחיקת קטגוריה</h2>
 
-<h2>Delete</h2>
+<h3>האם אתה בטוח כי ברצונך למחוק קטגוריה זו?</h3>
+<div class="del-con">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>ProductCategory</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Category)
@@ -21,12 +22,16 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="מחק" class="btn btn-danger" /> |
-            @Html.ActionLink("חזור", "Index")
+            <input type="submit" value="מחק" class="btn btn-default" />
+
+        </div>
+        <div class="btn-link">
+            @Html.ActionLink("חזור לקטגוריות", "Index")
         </div>
     }
 </div>

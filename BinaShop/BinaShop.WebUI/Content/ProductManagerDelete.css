@@ -1,0 +1,17 @@
+﻿body {
+}
+h3 {
+    margin-right: 380px;
+}
+.del-con {
+    margin-right: 380px;
+}
+.btn-link {
+    position: absolute;
+    width: 400px;
+    top: 13%;
+    right: 5%
+}
+.btn-default{
+    width:100px;
+}

@@ -206,8 +206,15 @@
     <Content Include="Content\bootstrap.rtl.full.min.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Design.css" />
+    <Content Include="Content\DetailsHome.css" />
+    <Content Include="Content\IndexHome.css" />
     <Content Include="Content\normalize.rtl.css" />
-    <Content Include="Content\style.css" />
+    <Content Include="Content\ProductCategoryIndex.css" />
+    <Content Include="Content\ProductManagerDelete.css" />
+    <Content Include="Content\ProductManagerEdit.css" />
+    <Content Include="Content\ProductManagerIndex.css" />
+    <Content Include="Content\ProductsHome.css" />
+    <Content Include="Content\StyleSheet1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

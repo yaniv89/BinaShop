@@ -3,13 +3,17 @@
 @{
     ViewBag.Title = "הסרת מוצר";
 }
-
+<head>
+    <link rel=stylesheet type="text/css" href="~/Content/ProductManagerDelete.css">
+</head>
+<div class="btn-link">
+@Html.ActionLink("חזרה לעמוד הניהול", "Index")
+</div>
 <h2>הסרת מוצר</h2>
 
-<h3>האם אתה בטוח כי ברצונך להסיר מוצר זה?</h3>
-<div>
- 
-    <hr />
+<h3 >האם אתה בטוח כי ברצונך להסיר מוצר זה?</h3>
+<div class="del-con">
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -53,12 +57,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="הסר מוצר" class="btn btn-default" /> |
-            @Html.ActionLink("חזרה לעמוד הניהול", "Index")
+            <input type="submit" value="הסר מוצר" class="btn btn-default"/>
+
         </div>
     }
 </div>

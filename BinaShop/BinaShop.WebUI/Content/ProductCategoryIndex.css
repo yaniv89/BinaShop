@@ -1,0 +1,28 @@
+﻿body {
+}
+
+.table-responsive {
+    color: #515151;
+    word-spacing: 5px;
+    border-spacing: 50px;
+    border: dashed;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 355px;
+    margin-left: 355px;
+}
+
+.btn-add {
+    margin-right: 340px;
+}
+
+
+
+
+
+.form-horizontal {
+    position: absolute;
+    width: 400px;
+    top: 30%;
+    right: 43%;
+}

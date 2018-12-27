@@ -4,7 +4,9 @@
 @{
     ViewBag.Title = "עריכת מוצר";
 }
-
+<head>
+    <link rel=stylesheet type="text/css" href="~/Content/ProductManagerEdit.css">
+</head>
 <h2>עריכת מוצר</h2>
 
 
@@ -14,7 +16,7 @@
     
 <div class="form-horizontal">
 
-    <hr />
+
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Product.Id)
 
@@ -70,7 +72,7 @@
 </div>
 }
 
-<div>
+<div class="btn-link">
     @Html.ActionLink("חזרה לעמוד הניהול", "Index")
 </div>
 

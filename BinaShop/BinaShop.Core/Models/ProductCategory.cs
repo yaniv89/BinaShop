@@ -10,7 +10,7 @@ namespace BinaShop.Core.Models
     public class ProductCategory : BaseEntity
     {
 
-        [DisplayName("קטגוריה")]
+        [DisplayName("קטגוריה:")]
         public string Category { get; set; }
 
     }

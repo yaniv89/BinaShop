@@ -1,18 +1,18 @@
-/*---------------------------------*/
+﻿/*---------------------------------*/
 /*BASIC SETUP*/
 /*---------------------------------*/
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: :border-box;
+    box-sizing: border-box;
 }
 
 html {
     background-color: #fff;
     color: #fff;
-    font-family: 'Bellefair','Arial',sans-serif;
-    font font-weight: 300;
+    font-family: 'Assistant','Arial',sans-serif;
+    font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
 }
@@ -151,18 +151,20 @@ header {
     right: 60%;
     transform: translate(-20%, -50%);
 }
-
-.logo {
-    height: 100px;
-    width: auto;
-    float: right;
-    margin-top: 20px;
+.logo img{
+    height: 67px;
+    width: 67px;
+    margin-top:1px;
 }
+
 
 .main-nav {
     float: left;
     list-style: none;
     margin-top: 30px;
+    position:absolute;
+    right:42%;
+    top:-2%;
 }
 
     .main-nav li {
@@ -187,5 +189,5 @@ header {
 
 .section-features {
     color: #000;
-    padding-right:35px;
+    padding-right: 35px;
 }

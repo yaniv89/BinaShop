@@ -1,14 +1,16 @@
 ﻿@model IEnumerable<BinaShop.Core.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "עמוד ניהול";
 }
-
+<head>
+    <link rel=stylesheet type="text/css" href="~/Content/ProductManagerIndex.css">
+</head>
 <h2>עמוד ניהול</h2>
 
 <a class="btn btn-ghost" href="/ProductManager/Create">הוספת מוצר</a>
 
-    <table class="table">
+    <table class="table-responsive">
         <thead class="thead" >
 
             <tr>
