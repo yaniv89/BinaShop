@@ -40,7 +40,7 @@ namespace BinaShop.WebUI.Controllers
 
         public ActionResult Products(string Category = null)
         {
-            List<Product> products = context.Collection().ToList();
+            List<Product> products;
             List<ProductCategory> categories = productCategories.Collection().ToList();
 
             if (Category == null)
@@ -55,6 +55,7 @@ namespace BinaShop.WebUI.Controllers
             ProductListViewModel model = new ProductListViewModel();
             model.Products = products;
             model.ProductCategories = categories;
+
 
             return View(model);
         }

@@ -52,7 +52,7 @@
                     <h4>₪@item.Price</h4>
                 </div>
                 <div class="col-md-12">
-                    <a href="$" class="btn btn-full">הוסף לסל</a>
+                    <a href="@Url.Action("AddToBasket","Basket",new {Id=item.Id })" class="btn btn-full">הוסף לסל</a>
                 </div>
             </div>
 

@@ -34,6 +34,10 @@
                     <li><a href="#">התחבר</a></li>
                     <li><a href="#">הרשם</a></li>
 
+                    @{
+                        Html.RenderAction("BasketSummary", "Basket");
+
+                    }
                 </ul>
             </div>
         </nav>
@@ -42,7 +46,7 @@
         @RenderBody()
 
     </div>
-
+    
       
     <div class="col-md-12 clearfix" />
     @Scripts.Render("~/bundles/jquery")
