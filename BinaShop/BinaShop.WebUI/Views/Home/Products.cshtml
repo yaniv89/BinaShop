@@ -1,19 +1,42 @@
-﻿@model IEnumerable<BinaShop.Core.Models.Product>
+﻿@model BinaShop.Core.ViewModels.ProductListViewModel
 @{
-    ViewBag.Title = "Products";
+    ViewBag.Title = "מוצרים";
 }
 
 <head>
+
     <link rel=stylesheet type="text/css" href="Vendors/Css/normalize.rtl.css">
     <link rel=stylesheet type="text/css" href="~/Content/038 Grid.css">
     <link rel=stylesheet type="text/css" href="~/Content/ProductsHome.css">
     <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
-    </head>
-    <h2>מוצרים</h2>
+ 
 
-    @foreach (var item in Model)
-    {
-        
+</head>
+    <h2>מוצרים</h2>
+    
+    <div class="col-md-2">
+        <h4>סנן לפי קטגוריה</h4>
+        <button class="btn btn-full">
+            <div class="list-group">
+                @Html.ActionLink("הכל", "Products", null, new { @class = Request["Category"] == null ? "list-group-item-active" : "list-group-item" })
+           </div>
+            </button>
+
+            @foreach (var cat in Model.ProductCategories)
+            {
+                <button class="btn btn-full">
+                    @Html.ActionLink(cat.Category, "Products", new { Category = cat.Category }, new { @class = Request["Category"] == cat.Category ? "list-group-item-active" : "list-group-item" })
+                    </button>
+                    }
+                </div>
+    <div class="col-md-10">
+
+
+
+
+        @foreach (var item in Model.Products)
+        {
+
             <div class="col-md-4">
 
                 <div class="col-md-12">
@@ -32,6 +55,7 @@
                     <a href="$" class="btn btn-full">הוסף לסל</a>
                 </div>
             </div>
-        
-    }
+
+        }
+    </div>
     <div class="col-md-12 clearfix" />

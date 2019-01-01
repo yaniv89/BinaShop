@@ -19,3 +19,31 @@
     height: 250px;
     display:inline-block;
 }
+
+button {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+
+.btn-full:link,
+.btn-full:visited {
+    background-color: #6be5cd;
+    border: 1px solid #6be5cd;
+    color: #2a2a2a;
+    margin-left: 25px;
+}
