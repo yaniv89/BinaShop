@@ -7,7 +7,7 @@ namespace BinaShop.WebUI.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "דואר אלקטרוני")]
+        [Display(Name = "דואר אלקטרוני:")]
         public string Email { get; set; }
     }
 
@@ -43,20 +43,20 @@ namespace BinaShop.WebUI.Models
     public class ForgotViewModel
     {
         [Required]
-        [Display(Name = "דואר אלקטרוני")]
+        [Display(Name = "דואר אלקטרוני:")]
         public string Email { get; set; }
     }
 
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "דואר אלקטרוני")]
+        [Display(Name = "דואר אלקטרוני:")]
         [EmailAddress]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "סיסמה")]
+        [Display(Name = "סיסמה:")]
         public string Password { get; set; }
 
         [Display(Name = "זכור אותי?")]
@@ -67,17 +67,17 @@ namespace BinaShop.WebUI.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "דואר אלקטרוני")]
+        [Display(Name = "דואר אלקטרוני:")]
         public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "הסיסמה חייבת לכלול לפחות 6 תווים", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "סיסמה")]
+        [Display(Name = "סיסמה:")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "אשר סיסמה")]
+        [Display(Name = "אשר סיסמה:")]
         [Compare("Password", ErrorMessage = "הסיסמה ואישור הסיסמה אינם תואמים!")]
         public string ConfirmPassword { get; set; }
 
@@ -102,18 +102,18 @@ namespace BinaShop.WebUI.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "דואר אלקטרוני:")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "הסיסמה חייבת לכלול 6 תווים לפחות.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "אשר סיסמה:")]
+        [Compare("Password", ErrorMessage = "הסיסמה ואישור הסיסמה אינם תואמים!")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
@@ -123,7 +123,7 @@ namespace BinaShop.WebUI.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "דואר אלקטרוני:")]
         public string Email { get; set; }
     }
 }

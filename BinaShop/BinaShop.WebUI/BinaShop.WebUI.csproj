@@ -215,6 +215,7 @@
     <Content Include="Content\ProductManagerEdit.css" />
     <Content Include="Content\ProductManagerIndex.css" />
     <Content Include="Content\ProductsHome.css" />
+    <Content Include="Content\Register.css" />
     <Content Include="Content\StyleSheet1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -287,6 +288,8 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Basket\Index.cshtml" />
     <Content Include="Views\Basket\BasketSummary.cshtml" />
+    <Content Include="Views\Basket\CheckOut.cshtml" />
+    <Content Include="Views\Basket\ThankYou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

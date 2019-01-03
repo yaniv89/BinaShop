@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "הרשמה";
 }
-
-<h2>הרשמה.</h2>
+<link rel=stylesheet type="text/css" href="~/Content/Register.css">
+<h2>הרשמה</h2>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -12,61 +12,61 @@
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
+        <div class="col-md-10" style="display:inline-block;">
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
+        <div class="col-md-10" style="display:inline-block;">
             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
+        <div class="col-md-10" style="display:inline-block;">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
+        <div class="col-md-10" style="display:inline-block;">
             @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
+        <div class="col-md-10" style="display:inline-block;">
             @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Street, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
+        <div class="col-md-10" style="display:inline-block;">
             @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
+        <div class="col-md-10" style="display:inline-block;">
             @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
+        <div class="col-md-10" style="display:inline-block;">
             @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="הרשם" />
+            <input type="submit" class="btn btn-full" value="הרשם" style="margin-right:580px;border-radius:100px;margin-top:20px;width:100px;height:30px;border:1px solid gray;"/>
         </div>
     </div>
 }

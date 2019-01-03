@@ -1,0 +1,16 @@
+﻿body {
+}
+label{
+    width:590px;
+    padding-right:380px;
+    display:inline-block;
+
+}
+.form-control{
+    display:inline-block;
+    border-radius:300px;
+    width:270px;
+    height:25px;
+    border:1px solid teal;
+}
+
