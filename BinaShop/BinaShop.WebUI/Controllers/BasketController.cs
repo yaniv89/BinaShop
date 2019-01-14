@@ -1,10 +1,12 @@
 ﻿using BinaShop.Core.Contracts;
 using BinaShop.Core.Models;
+using BinaShop.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace BinaShop.WebUI.Controllers
 {
@@ -23,7 +25,7 @@ namespace BinaShop.WebUI.Controllers
         // GET: Basket
         public ActionResult Index()
         {
-            var model = basketService.GetBasketItems(this.HttpContext);
+            var model =  basketService.GetBasketItems(this.HttpContext);
             return View(model);
         }
 
@@ -92,6 +94,12 @@ namespace BinaShop.WebUI.Controllers
         {
             ViewBag.OrderId = OrderId;
             return View();
+        }
+        public ActionResult PaypalPartial()
+        {
+            var cart = Session["cart"] as List<BasketItemViewModel> ?? new List<BasketItemViewModel>();
+
+            return PartialView(cart);
         }
     }
 }

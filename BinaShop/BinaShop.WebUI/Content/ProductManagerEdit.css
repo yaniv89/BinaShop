@@ -1,23 +1,2 @@
 ﻿body {
 }
-.btn-link {
-    position: absolute;
-    width: 400px;
-    top: 13%;
-    right: 5%
-}
-
-.btn-full {
-    width: 100px;
-}
-
-.form-horizontal {
-    position: absolute;
-    width: 400px;
-    top: 30%;
-    right: 39%;
-}
-.img-responsive {
-    max-height: 300px;
-    max-width: 300px;
-}

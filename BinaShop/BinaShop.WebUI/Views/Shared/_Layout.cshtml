@@ -1,58 +1,71 @@
-﻿<!DOCTYPE html >
+﻿<!DOCTYPE html>
+
 <html lang="he" dir="rtl">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-
-    <link rel=stylesheet type="text/css" href="Vendors/Css/normalize.rtl.css">
-    <link rel=stylesheet type="text/css" href="~/Content/038 Grid.css">
-    <link rel=stylesheet type="text/css" href="~/Content/StyleSheet1.css">
-    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
-
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/StyleSheet1.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <title>@ViewBag.Title</title>
 
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <header>
-        <nav>
+    <nav class="main-nav navbar navbar-expand-lg" style="font-size:20px;background-color: rgba(0, 226, 241, 0.36);">
+        <a class="navbar-brand" href="/Home/Index"><img src="~/Content/Bina_Logo.png" style="height:55px;position:relative;" /></a>
+        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
 
-            <div class="row">
-                <div class="logo">
-                    <a class="navbar-brand" href="/Home/Index">
-                    <img src="~/Content/Bina_Logo.png" style="height:67px;width:67px;margin-top:1px;" alt="לוגו הלוכדים של בינה" />
-                    </a>
-                </div>
-
-                <ul class="main-nav">
-                    <li><a href="/Home/Products">לוכדי חלומות</a></li>
-                    <li><a href="#">סדנאת לוכדי חלומות</a></li>
-                    <li><a href="#">צור קשר</a></li>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a href="/Home/Products">לוכדי חלומות</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#">סדנאת לוכדי חלומות</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="/Home/Contact">צור קשר</a>
+                </li>
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
                     <li><a href="/Admin/Index">מנהל</a></li>
-                    <li><a href="#">התחבר</a></li>
-                    <li><a href="#">הרשם</a></li>
+                }
 
-                    @{
-                        Html.RenderAction("BasketSummary", "Basket");
+            </ul>
 
-                    }
-                </ul>
-            </div>
-        </nav>
-    </header>
+            <ul class="navbar-nav mr-auto">
+                @Html.Partial("_LoginPartial")
+                @{
+                    Html.RenderAction("BasketSummary", "Basket");
+
+                }
+            </ul>
+        </div>
+    </nav>
+
+
+
     <div class="container body-content">
         @RenderBody()
 
     </div>
-    
-      
-    <div class="col-md-12 clearfix" />
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 
+
+
+    
+    @RenderSection("scripts", required: false)
+    <br />
+    <br />
 </body>
 </html>
+

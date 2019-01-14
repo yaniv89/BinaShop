@@ -1,21 +1,27 @@
-﻿@{ 
+﻿@{
     ViewBag.Title = "מנהל";
 }
+<style>
+    html {
+        text-align: center;
+    }
+</style>
 
 <h2>דף ניהול</h2>
-
-<div class="col-md-6">
+<div class="container">
+<div class="col-sm-12" style="text-align:-webkit-center;margin-left:auto;margin-right:auto;">
     <h4>ניהול מוצרים</h4>
     <div class="list-group">
-        <a class="btn btn-full" href="/ProductCategoryManager/Index">קטגוריות מוצרים</a>
-        <a class="btn btn-full" href="/ProductManager/Index">קטגוריות מוצרים</a>
-        
+        <a class="btn btn-full" href="/ProductCategoryManager/Index" style="margin-bottom:20px;width:300px;">קטגוריות מוצרים</a>
+        <a class="btn btn-full" href="/ProductManager/Index" style="width:300px;">ניהול מוצרים</a>
+
     </div>
 </div>
 
-<div class="col-md-6">
+<div class="col-sm-12" style="text-align:-webkit-center;margin-left:auto;margin-right:auto;">
     <h4>ניהול הזמנות</h4>
     <div class="list-group">
-        <a class="btn btn-full" href="/OrderManager/Index">הזמנות</a>
+        <a class="btn btn-full" href="/OrderManager/Index" style="width:300px;">הזמנות</a>
     </div>
+</div>
 </div>

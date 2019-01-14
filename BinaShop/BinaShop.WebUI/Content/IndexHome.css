@@ -43,9 +43,10 @@ h1 {
     margin-top: 0;
     margin-bottom: 20px;
     color: #fff;
-    font-size: 240%;
+    font-size: 140%;
     word-spacing: 3px;
     letter-spacing: 1px;
+
 }
 
 h2 {
@@ -107,7 +108,7 @@ h2:after {
     background-color: #6be5cd;
     border: 1px solid #6be5cd;
     color: #2a2a2a;
-    margin-left: 25px;
+ 
 }
 
 .btn-ghost:link,
@@ -139,18 +140,21 @@ h2:after {
 /*---------------------------------*/
 header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.7)), url(/Content/264.jpg);
-    background-size: cover;
-    background-position: center;
     height: 100vh;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
 }
 
-.bina-text-box {
+/*.bina-text-box {
     position: absolute;
     width: 400px;
     top: 50%;
     right: 60%;
     transform: translate(-20%, -50%);
-}
+}*/
 .logo img{
     height: 67px;
     width: 67px;
@@ -159,11 +163,9 @@ header {
 
 
 .main-nav {
-    float: left;
+    color:whitesmoke;
     list-style: none;
-    position:absolute;
-    right:50%;
-    top:1%;
+    
 }
 
     .main-nav li {
@@ -174,7 +176,7 @@ header {
         .main-nav li a:link,
         .main-nav li a:visited {
             padding: 8px 0;
-            color: #fff;
+            color: rgba(0, 0, 0, 0.6);
             text-decoration: none;
             font-size: 90%;
             border-bottom: 2px solid transparent;
@@ -183,10 +185,11 @@ header {
 
         .main-nav li a:hover,
         .main-nav li a:active {
-            border-bottom: 2px solid #6be5cd;
+            border-bottom: 2px solid #fff;
         }
 
 .section-features {
     color: #000;
     padding-right: 35px;
 }
+

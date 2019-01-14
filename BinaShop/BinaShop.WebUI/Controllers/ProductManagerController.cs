@@ -11,6 +11,7 @@ using BinaShop.DataAccess.InMemory;
 
 namespace BinaShop.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductManagerController : Controller
     {
         IRepository<Product> context;

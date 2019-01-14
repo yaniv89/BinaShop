@@ -25,6 +25,7 @@ namespace BinaShop.Core.Models
         public string Category { get; set; }
         [DisplayName("תמונה:")]
         public string Image { get; set; }
-
+        public string currency { get; set; }
+        public int Quantity { get; set; }
     }
 }

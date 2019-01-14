@@ -6,15 +6,20 @@
 <head>
     <link rel=stylesheet type="text/css" href="~/Content/ProductManagerIndex.css">
 </head>
-<h2>עמוד ניהול</h2>
+<div class="btn-link" style="text-align:right;">
+    <a href="/Admin/Index">חזרה לעמוד ניהול</a>
+</div>
+<div class="container" style="text-align:center;">
+    <h2>עמוד ניהול מוצרים</h2>
 
-<a class="btn btn-ghost" href="/ProductManager/Create">הוספת מוצר</a>
+    <a class="btn btn-full" href="/ProductManager/Create" style="margin-bottom:25px;">הוספת מוצר</a>
 
-    <table class="table-responsive">
-        <thead class="thead" >
+    <table class="table table-responsive table-bordered" style="text-align:center;border:none;">
+        <thead class="thead">
 
             <tr>
                 <th scope="col">
+                    תמונה:
                 </th>
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.Name)
@@ -29,36 +34,38 @@
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.Category)
                 </th>
-                
+
                 <th></th>
 
             </tr>
 
-    </thead>
-        
-@foreach (var item in Model) {
-    <tr>
-        <td scope="col">
-            <img class="img-thumbnail" style="height:50px;" src="~/Content/ProductImages/@item.Image"/>
-        </td>
-        <td scope="col">
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td scope="col">
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td scope="col">
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td scope="col">
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-       
-        <td scope="col">
-            @Html.ActionLink("ערוך מוצר", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("הסר מוצר", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+        </thead>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="col">
+                    <img class="img-thumbnail" style="height:50px;" src="~/Content/ProductImages/@item.Image" />
+                </td>
+                <td scope="col">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td scope="col">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td scope="col">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td scope="col">
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+
+                <td scope="col">
+                    @Html.ActionLink("ערוך מוצר", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("הסר מוצר", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

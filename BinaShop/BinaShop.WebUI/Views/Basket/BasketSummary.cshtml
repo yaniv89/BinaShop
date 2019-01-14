@@ -1,6 +1,7 @@
 ﻿@model BinaShop.Core.ViewModels.BasketSummaryViewModel
-
-<ul class="nav navbar-nav navbar-left" style="float:left;margin-right:205px;">
-    <li><a href="@Url.Action("Index", "Basket")">@Model.BasketCount פריטים</a></li>
+<script src="https://unpkg.com/ionicons@4.5.0/dist/ionicons.js"></script>
+<ul class="nav navbar-nav mr-auto" >
+    
+    <li><a href="@Url.Action("Index", "Basket")"><ion-icon name="cart"></ion-icon> @Model.BasketCount פריטים</a></li>
     <li><a href="@Url.Action("Index", "Basket")">@String.Format("{0:c}",Model.BasketTotal) </a></li>
 </ul>

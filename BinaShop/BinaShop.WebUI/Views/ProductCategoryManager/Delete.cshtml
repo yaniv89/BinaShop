@@ -6,32 +6,36 @@
 <head>
     <link rel=stylesheet type="text/css" href="~/Content/ProductManagerDelete.css">
 </head>
-<h2>מחיקת קטגוריה</h2>
 
-<h3>האם אתה בטוח כי ברצונך למחוק קטגוריה זו?</h3>
-<div class="del-con">
+    <div class="btn-link" style="text-align:right;">
+        @Html.ActionLink("חזור לקטגוריות", "Index")
+    </div>
+    <div class="container" style="text-align:-webkit-center;">
+        <h2>מחיקת קטגוריה</h2>
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
+        <h3>האם אתה בטוח כי ברצונך למחוק קטגוריה זו?</h3>
+        <div class="del-con">
 
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+            </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="מחק" class="btn btn-default" />
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
+                <div class="form-actions no-color">
+                    <input type="submit" value="מחק" class="btn btn-danger" />
+
+                </div>
+
+            }
         </div>
-        <div class="btn-link">
-            @Html.ActionLink("חזור לקטגוריות", "Index")
-        </div>
-    }
-</div>
+    </div>

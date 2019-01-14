@@ -2,55 +2,84 @@
 
 @{
     ViewBag.Title = "סל קניות";
+    int count = 1;
 }
 <head>
     <link rel=stylesheet type="text/css" href="~/Content/ProductManagerIndex.css">
 </head>
-<h2>סל קניות</h2>
+<div class="container" style="text-align:-webkit-center;">
+    <h2>סל קניות</h2>
 
-<table class="table-responsive" style="margin-right:150px;">
-    <tr>
-        <th></th>
-        <th>
-           שם המוצר
-        </th>
-        <th>
-            כמות
-        </th>
-        <th>
-            מחיר
-        </th>
-        <th>
-            סך הכל
-        </th>
-        <th></th>
-    </tr>
+    <table class="table table-responsive" style="text-align:right;">
+        <tr>
+            <th>
+                תמונה
+            </th>
+            <th>
+                שם המוצר
+            </th>
+            <th>
+                כמות
+            </th>
+            <th>
+                מחיר
+            </th>
+            <th>
+                סך הכל
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td><img style="height:50px;" class="img" src="~/Content/ProductImages/@item.Image"/></td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img class="img-thumbnail" style="height:50px;" src="~/Content/ProductImages/@item.Image" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
 
-        <td>
-            @String.Format("{0:c}",item.Price)
-        </td>
-        <td>
-            @String.Format("{0:c}", item.Price*item.Quantity)
-        </td>
-        <td>
-            <a href="@Url.Action("RemoveFromBasket", "Basket",new {id=item.Id })" class="btn btn-danger">מחק</a>
-            
-        </td>
-    </tr>
-}
-    <tr>
-        <td colspan="4" style="text-align:right;"><strong>סך כל הסל</strong></td>
-        <td>@String.Format("{0:c}", (from p in Model select p.Price*p.Quantity).Sum())</td>
-        <td><a href="@Url.Action("CheckOut","Basket")">לתשלום</a></td>
-    </tr>
-</table>
+                <td>
+                    @String.Format("{0:c}", item.Price)
+                </td>
+                <td>
+                    @String.Format("{0:c}", item.Price * item.Quantity)
+                </td>
+                <td>
+                    <a href="@Url.Action("RemoveFromBasket", "Basket",new {id=item.Id })" class="btn btn-danger">מחק</a>
+
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="4" style="text-align:right;"><strong>סך כל הסל</strong></td>
+            <td>@String.Format("{0:c}", (from p in Model select p.Price * p.Quantity).Sum())</td>
+            <td><a class="btn btn-full" href="@Url.Action("CheckOut","Basket")">לתשלום</a></td>
+        </tr>
+    </table>
+    <input type="hidden" name="cmd" value="_ext-enter">
+    <div class="paypaldiv">
+        <form action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post" class="paypalform">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="upload" value="1">
+            <input type="hidden" name="business" value="vodovozd-facilitator@gmail.com">
+            @foreach (var item in Model)
+            {
+                <input type="hidden" name="item_name_@count" value="@item.ProductName">
+                <input type="hidden" name="amount_@count" value="@item.Price">
+                <input type="hidden" name="quantity_@count" value="@item.Quantity">
+                count++;
+
+            }
+
+            <input type="hidden" name="currency_code" value="ILS">
+            <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+        </form>
+
+    </div>
+
+    <br />
+    <a href="#" class="placeorder btn btn-info pull-right">Checkout</a>
+</div>

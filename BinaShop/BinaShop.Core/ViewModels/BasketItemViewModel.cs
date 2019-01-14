@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BinaShop.Core.Models;
 
 namespace BinaShop.Core.ViewModels
 {
@@ -13,5 +14,6 @@ namespace BinaShop.Core.ViewModels
         public string ProductName { get; set; }
         public decimal Price { get; set; }
         public string Image { get; set; }
+        public List<BasketItem> items { get; set; }
     }
 }

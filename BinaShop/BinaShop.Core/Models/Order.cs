@@ -25,6 +25,7 @@ namespace BinaShop.Core.Models
         public string City { get; set; }
         [DisplayName("מיקוד:")]
         public string ZipCode { get; set; }
+        [DisplayName("סטטוס:")]
         public string OrderStatus { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
 

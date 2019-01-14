@@ -6,29 +6,35 @@
 <head>
     <link rel=stylesheet type="text/css" href="~/Content/ProductCategoryIndex.css">
 </head>
-<h2>ניהול קטגוריות</h2>
-<div class="btn-add">
-    <a class="btn btn-ghost" href="/ProductCategoryManager/Create" style="margin-right:20px;">צור קטגוריה</a>
+<div class="btn-link" style="text-align:right;">
+    <a href="/Admin/Index">חזרה לעמוד ניהול</a>
 </div>
-<table class="table-responsive">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+<div class="container" style="text-align:center;">
+    <h2>ניהול קטגוריות</h2>
+    <div class="btn-add">
+        <a class="btn btn-full" href="/ProductCategoryManager/Create" style="margin-right:20px;">צור קטגוריה</a>
+    </div>
+    <table class="table table-responsive table-bordered" style="text-align:center;border:none;">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.ActionLink("ערוך קטגוריה", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("מחיקת קטגוריה", "Delete", new { id = item.Id })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.ActionLink("ערוך קטגוריה", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("מחיקת קטגוריה", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

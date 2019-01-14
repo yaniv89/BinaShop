@@ -6,64 +6,69 @@
 <head>
     <link rel=stylesheet type="text/css" href="~/Content/ProductManagerDelete.css">
 </head>
-<div class="btn-link">
-@Html.ActionLink("חזרה לעמוד הניהול", "Index")
+<div class="btn-link" style="text-align:right;">
+@Html.ActionLink("חזרה למוצרים", "Index")
 </div>
-<h2>הסרת מוצר</h2>
+<div class="container" style="text-align:-webkit-center;">
+    <h2>הסרת מוצר</h2>
 
-<h3 >האם אתה בטוח כי ברצונך להסיר מוצר זה?</h3>
-<div class="del-con">
+    <h3>האם אתה בטוח כי ברצונך להסיר מוצר זה?</h3>
+    <div class="del-con">
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Category)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
+            <dd>
+                
+                    <img class="img-fluid" src="~/Content/ProductImages/@Model.Image" />
 
-    </dl>
+                
+            </dd>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="הסר מוצר" class="btn btn-default"/>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="הסר מוצר" class="btn btn-danger" />
+
+            </div>
+        }
+    </div>
 </div>
