@@ -1,35 +1,76 @@
 ﻿@model BinaShop.WebUI.Models.ExternalLoginConfirmationViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "הרשם";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>Associate your @ViewBag.LoginProvider account.</h3>
+<style>
+    
 
-@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
 
-    <h4>Association Form</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <p class="text-info">
-        You've successfully authenticated with <strong>@ViewBag.LoginProvider</strong>.
-        Please enter a user name for this site below and click the Register button to finish
-        logging in.
-    </p>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+    #btnsub:link,
+    #btnsub:visited {
+        background-color: #AFD3D3 !important;
+        border: 1px solid #AFD3D3 !important;
+        color: #465454 !important;
+    }
+
+    .btn-ghost:link,
+    .btn-ghost:visited {
+        background-color: #465454;
+        border: 1px solid #465454;
+        color: #AFD3D3;
+    }
+
+
+    #btnsub:hover,
+    #btnsub:active {
+        background-color: #BAD5DB !important;
+    }
+
+
+    #btnsub:hover,
+    #btnsub:active {
+        border: 1px solid #AFD3D3 !important;
+    }
+
+    .btn-ghost:hover,
+    .btn-ghost:active {
+        border: 1px solid #AFD3D3;
+        color: #465454;
+    }
+    .container{
+        text-align:right;
+    }
+    h2{
+        color:#afd3d3 !important;
+    }
+</style>
+<h2>@ViewBag.Title</h2>
+<h3>שייך את חשבון ה-FACEBOOK שלך.</h3>
+<div class="container">
+    @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <p class="text-info">
+            נרשמת בהצלחה עם <strong>FACEBOOK</strong>.
+            בבקשה הכנס דואר אלקטרוני בתיבה ולחץ הרשם על מנת לסיים את ההתחברות.
+
+        </p>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="btnsub" class="btn btn-full" value="הרשם"  style="background-color:#AFD3D3;"/>
+            </div>
         </div>
-    </div>
-}
+    }
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

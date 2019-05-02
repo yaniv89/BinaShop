@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Assistant','Arial',sans-serif;
 }
 
 html {
@@ -22,8 +23,9 @@ html {
 /*---------------------------------*/
 
 .row {
-    max-width: 1140px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: auto auto;
+    position:relative;
 }
 
 section {
@@ -45,6 +47,15 @@ p {
     color: #515151;
 }
 
+.text-danger h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 240%;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+}
+
 h1 {
     margin-top: 0;
     margin-bottom: 20px;
@@ -55,7 +66,7 @@ h1 {
 }
 
 h2 {
-    color:#31dbb9;
+    color:#afd3d3;
     font-size: 180%;
     word-spacing: 2px;
     text-align: center;
@@ -73,7 +84,7 @@ h3 {
 h2:after {
     display: block;
     height: 2px;
-    background-color: #31dbb9;
+    background-color: #afd3d3;
     content: " ";
     width: 100px;
     margin: 0 auto;
@@ -100,47 +111,51 @@ h2:after {
 }
 
 /*----BUTTONS----*/
+
+/*----BUTTONS----*/
 .btn:link,
 .btn:visited {
-    display: inline-block;
-    padding: 10px 30px;
-    font-weight: 300;
-    text-decoration: none;
-    border-radius: 200px;
-    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    display: inline-block !important;
+    padding: 10px 30px !important;
+    font-weight: 300 !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    border-radius: 200px !important;
+    transition: background-color 0.2s, border 0.2s, color 0.2s !important;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4) !important;
 }
 
 
 .btn-full:link,
 .btn-full:visited {
-    background-color: #6be5cd;
-    border: 1px solid #6be5cd;
-    color: #2a2a2a;
-    margin-left: 25px;
+    background-color: #AFD3D3 !important;
+    border: 1px solid #AFD3D3 !important;
+    color: #465454 !important;
 }
 
 .btn-ghost:link,
 .btn-ghost:visited {
-    border: 1px solid #6be5cd;
-    color: #6be5cd;
+    background-color: #465454 !important;
+    border: 1px solid #465454 !important;
+    color: #AFD3D3 !important;
 }
 
 
 .btn:hover,
 .btn:active {
-    background-color: #31dbb9;
+    background-color: #BAD5DB !important;
 }
 
 
 .btn-full:hover,
 .btn-full:active {
-    border: 1px solid #6be5cd;
+    border: 1px solid #AFD3D3 !important;
 }
 
 .btn-ghost:hover,
 .btn-ghost:active {
-    border: 1px solid #6be5cd;
-    color: #fff;
+    border: 1px solid #AFD3D3 !important;
+    color: #465454 !important;
 }
 
 /*---------------------------------*/
@@ -168,30 +183,250 @@ header {
 
 
 
-    .main-nav li {
-        display: inline-block;
-        margin-right: 25px;
+.main-nav li {
+    display: inline-block;
+    margin-right: 25px;
+    max-width: fit-content;
+}
+
+    .main-nav li a:link,
+    .main-nav li a:visited {
+        padding: 1px 0;
+        color: rgba(0, 0, 0, 0.6);
+        text-decoration: none;
+        font-size: 90%;
+        border-bottom: 2px solid transparent;
+        transition: border-bottom 0.2s;
+        max-width: fit-content;
     }
 
-        .main-nav li a:link,
-        .main-nav li a:visited {
-            padding: 8px 0;
-            color: #515151;
-            text-decoration: none;
-            font-size: 90%;
-          
-        }
-
-        .main-nav li a:hover,
-        .main-nav li a:active {
-            border-bottom: 2px solid #fff;
-            background-color:transparent;
-        }
+    .main-nav li a:hover,
+    .main-nav li a:active {
+        border-bottom: 2px solid #fff;
+        max-width: fit-content;
+    }
 
 .section-features {
     color: #000;
     padding-right:35px;
 }
 
+@media only screen and (max-width: 992px) {
+    #navRight {
+        margin-right: 0px !important;
+    }
+}
+    /*mobile*/
+    @media only screen and (max-width: 600px) {
+        #footerpad {
+            padding-bottom: 20px !important;
+        }
+        #navRight {
+            margin-right: 0px !important;
+        }
+        #tblpaypal img{
+            width:100%;
+        }
+        .ml8 .letters {
+            position: absolute !important;
+            z-index: 2 !important;
+            display: inline-block !important;
+            line-height: 0.7em !important;
+            top: -0.8em !important;
+            left: 3% !important;
+        }
+
+        .ml8 .bang {
+            position: absolute !important;
+            font-size: 1.2em !important;
+            top: -0.7em !important;
+            left: -0.8em !important;
+        }
+
+        .ml8 .bang1 {
+            position: absolute !important;
+            font-size: 1.2em !important;
+            top: -0.7em !important;
+            left: -0.5em !important;
+        }
+
+        .ml8 .bang2 {
+            position: absolute !important;
+            font-size: 1.2em !important;
+            top: -0.7em !important;
+            left: -0.2em !important;
+        }
+    }
 
 
+    .ml8 {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 40%;
+        left: 40%;
+        display: block;
+        z-index: 100;
+    }
+
+    h1.ml8 {
+        font-weight: 900;
+        font-size: 4.5em;
+        color: #fff;
+        width: 3em;
+        height: 3em;
+    }
+
+    .ml8 .letters-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        height: 1em;
+        display: inline-block;
+    }
+
+    .ml8 .letters {
+        position: absolute;
+        z-index: 2;
+        display: inline-block;
+        line-height: 0.7em;
+        top: -0.8em;
+        left: 40%;
+    }
+
+    .ml8 .bang {
+        position: absolute;
+        font-size: 1.2em;
+        top: -0.7em;
+        left: 0.8em;
+    }
+
+    .ml8 .bang1 {
+        position: absolute;
+        font-size: 1.2em;
+        top: -0.7em;
+        left: 0.5em;
+    }
+
+    .ml8 .bang2 {
+        position: absolute;
+        font-size: 1.2em;
+        top: -0.7em;
+        left: 0.2em;
+    }
+
+    .ml8 .circle {
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+    }
+
+    .ml8 .circle-white {
+        width: 4em;
+        height: 4em;
+        border: 2px dashed white;
+        border-radius: 2em;
+    }
+
+    .ml8 .circle-dark {
+        width: 3.2em;
+        height: 3.2em;
+        background-color: #AFD3D3;
+        border-radius: 3em;
+        z-index: 1;
+    }
+
+    .ml8 .circle-dark-dashed {
+        border-radius: 3em;
+        background-color: transparent;
+        border: 2px dashed #AFD3D3;
+        width: 3.3em;
+        height: 3.3em;
+    }
+
+    .backgroun_loader {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: #d8f2f7;
+        z-index: 99;
+    }
+
+    @media only screen and (max-width: 600px) {
+        footer {
+            position: unset;
+            width: 100%;
+            height: 280px;
+        }
+        .ml8 .bang {
+            position: absolute !important;
+            font-size: 1.2em !important;
+            top: -0.7em !important;
+            left: -0.8em !important;
+        }
+
+        .ml8 .bang1 {
+            position: absolute !important;
+            font-size: 1.2em !important;
+            top: -0.7em !important;
+            left: -0.5em !important;
+        }
+
+        .ml8 .bang2 {
+            position: absolute !important;
+            font-size: 1.2em !important;
+            top: -0.7em !important;
+            left: -0.2em !important;
+        }
+
+        .form-control1, .form-control2 {
+            display: inline-block;
+            border-radius: 0px;
+            width: 200px !important;
+            height: 25px;
+        }
+
+        #person, #lock {
+            width: auto !important;
+        }
+
+        #inputs {
+            width: 70% !important;
+        }
+
+        #chkbox {
+            text-align: center !important;
+        }
+
+        .backgroun_loader {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: #d8f2f7;
+            z-index: 99;
+        }
+    }
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+    .sidenav1, .sidenav{
+        display:none !important;
+    }
+}

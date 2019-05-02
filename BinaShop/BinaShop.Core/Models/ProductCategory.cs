@@ -12,6 +12,6 @@ namespace BinaShop.Core.Models
 
         [DisplayName("קטגוריה:")]
         public string Category { get; set; }
-
+        public int Sorting { get; set; }
     }
 }

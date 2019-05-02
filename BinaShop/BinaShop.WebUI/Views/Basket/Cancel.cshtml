@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Cancel";
+}
+
+<h2>תשלום נכשל</h2>
+@if (TempData["SM"] != null)
+{
+    <div class="text-center alert alert-success" style="width:300px;text-align:center;">
+        @TempData["SM"]
+    </div>
+}

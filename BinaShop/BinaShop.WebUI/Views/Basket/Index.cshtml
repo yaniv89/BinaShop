@@ -1,85 +1,112 @@
 ﻿@model IEnumerable<BinaShop.Core.ViewModels.BasketItemViewModel>
 
 @{
+    /**/
+
     ViewBag.Title = "סל קניות";
     int count = 1;
 }
 <head>
-    <link rel=stylesheet type="text/css" href="~/Content/ProductManagerIndex.css">
-</head>
-<div class="container" style="text-align:-webkit-center;">
-    <h2>סל קניות</h2>
-
-    <table class="table table-responsive" style="text-align:right;">
-        <tr>
-            <th>
-                תמונה
-            </th>
-            <th>
-                שם המוצר
-            </th>
-            <th>
-                כמות
-            </th>
-            <th>
-                מחיר
-            </th>
-            <th>
-                סך הכל
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td><img class="img-thumbnail" style="height:50px;" src="~/Content/ProductImages/@item.Image" /></td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-
-                <td>
-                    @String.Format("{0:c}", item.Price)
-                </td>
-                <td>
-                    @String.Format("{0:c}", item.Price * item.Quantity)
-                </td>
-                <td>
-                    <a href="@Url.Action("RemoveFromBasket", "Basket",new {id=item.Id })" class="btn btn-danger">מחק</a>
-
-                </td>
-            </tr>
+    <link rel=stylesheet type="text/css" href="~/Content/basketindex.css">
+    <style>
+        .ajaxbg {
+            position: absolute;
+            width: 80%;
+            height: 100%;
+            background: #fff;
+            display: none;
+            z-index: 1;
         }
-        <tr>
-            <td colspan="4" style="text-align:right;"><strong>סך כל הסל</strong></td>
-            <td>@String.Format("{0:c}", (from p in Model select p.Price * p.Quantity).Sum())</td>
-            <td><a class="btn btn-full" href="@Url.Action("CheckOut","Basket")">לתשלום</a></td>
-        </tr>
-    </table>
-    <input type="hidden" name="cmd" value="_ext-enter">
-    <div class="paypaldiv">
-        <form action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post" class="paypalform">
-            <input type="hidden" name="cmd" value="_cart">
-            <input type="hidden" name="upload" value="1">
-            <input type="hidden" name="business" value="vodovozd-facilitator@gmail.com">
-            @foreach (var item in Model)
-            {
-                <input type="hidden" name="item_name_@count" value="@item.ProductName">
-                <input type="hidden" name="amount_@count" value="@item.Price">
-                <input type="hidden" name="quantity_@count" value="@item.Quantity">
-                count++;
 
+            .ajaxbg span {
+                position: absolute;
+                top: 30%;
+                left: 50%;
             }
 
-            <input type="hidden" name="currency_code" value="ILS">
-            <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-        </form>
+        form.paypalform {
+            display: none;
+        }
+    </style>
+</head>
+<div class="jumbotron jumbotron-fluid" id="background">
+    <div class="container" id="c1">
+        <h2>סל מוצרים</h2>
+        <div class="container" id="c2">
 
+           
+            <table class="table table-responsive" id="tblcheckout">
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>
+                        מוצר
+                    </th>
+                    <th>
+                        כמות
+                    </th>
+                    <th>
+                        מחיר
+                    </th>
+                    <th>
+                        סך הכל
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td id="tdimg"><img class="img-thumbnail" src="~/Content/ProductImages/@item.Image" /></td>
+
+                        <td id="td1">
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td id="td2">
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+
+                        <td id="td3">
+                            @String.Format(ViewBag.il, "{0:c}", item.Price)
+                        </td>
+                        <td id="td4">
+                            @String.Format(ViewBag.il, "{0:c}", item.Price * item.Quantity)
+                        </td>
+                        <td id="td5">
+                            <a href="@Url.Action("RemoveFromBasket", "Basket",new {id=item.Id })" class="delete"><ion-icon name="trash"></ion-icon></a>
+
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-sm-12" id="wrapper">
+            <div class="row">
+
+                <div class="col-sm-8" id="sah">סך הכל:</div>
+                <div class="col-sm-4" id="total">@String.Format(ViewBag.il, "{0:c}", (from p in Model select p.Price * p.Quantity).Sum())</div>
+            </div>
+        </div>
+        <div class="col-sm-12" id="wrapper1">
+            <div class="row">
+                <span class="col-sm-2"></span>
+                <div class="col-sm-5">
+                    <p id="punder">
+                        הדרך הנוחה והבטוחה ביותר לתשלום<br />
+                        לחצו על הכפתור, התחברו לחשבון שלכם<br />
+                        והשלימו את תהליך התשלום!
+                    </p>
+                </div>
+                <div class="col-sm-5" id="paypalunder"><a href="@Url.Action("Checkout", "Basket")"><img src="~/Content/Images/paypal-button@2x-d5ec2863.png" /></a></div>
+            </div>
+        </div>
     </div>
 
-    <br />
-    <a href="#" class="placeorder btn btn-info pull-right">Checkout</a>
 </div>
+@section Scripts {
+
+
+
+}

@@ -1,16 +1,27 @@
 ﻿@model BinaShop.Core.ViewModels.ProductManagerViewModel
 
 @{
-    
-    ViewBag.Title = "הוספת מוצר";
+                /**/
+
+
+                ViewBag.Title = "הוספת מוצר";
 }
 <head>
     <link rel=stylesheet type="text/css" href="~/Content/ProductManagerIndex.css">
+    <style>
+        .form-control {
+            display: inline-block;
+            border-radius: 300px;
+            width: 300px;
+            height: 25px;
+            border: 1px solid teal;
+        }
+    </style>
 </head>
 <div class="btn-link" style="text-align:right;">
     @Html.ActionLink("חזרה למוצרים", "Index")
 </div>
-<div class="container" style="text-align:-webkit-center;">
+<div class="container" style="text-align: -webkit-center;;">
     <h2>הוספת מוצר</h2>
 
 
@@ -23,9 +34,9 @@
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                <div class="label-create">
-                    @Html.LabelFor(model => model.Product.Name, htmlAttributes: new { @class = "control-label col-sn-2" })
-                </div>
+
+                @Html.LabelFor(model => model.Product.Name, htmlAttributes: new { @class = "control-label col-sm-2" })
+
                 <div class="col-sm-10">
                     @Html.EditorFor(model => model.Product.Name, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Product.Name, "", new { @class = "text-danger" })
@@ -33,9 +44,9 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Product.Description, htmlAttributes: new { @class = "control-label col-sm-2" })
+                @Html.LabelFor(model => model.Product.Description, new { @class = "control-label col-sm-2" })
                 <div class="col-sm-10">
-                    @Html.EditorFor(model => model.Product.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextAreaFor(model => model.Product.Description, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Product.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -58,13 +69,21 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Product.Image, htmlAttributes: new { @class = "control-label col-sm-2" })
                 <div class="col-sm-10">
-                    <input type="file" id="file" name="file" class="form-control" />
+                    <input type="file" id="mainPhoto" name="mainPhoto" class="form-control" style="height:50px;" />
+                    <img id="imgpreview" src="#" style="display:grid;margin-top:20px;" />
+                </div>
+            </div><br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Product.Photos, htmlAttributes: new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    <input type="file" id="files" name="files" class="form-control" multiple="multiple" style="height:50px;" />
+
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <input type="submit" value="הוסף" class="btn btn-full" style="background-color:#a3f5fa;"/>
+                    <input type="submit" value="הוסף מוצר" class="btn btn-full" style="background-color:#a3f5fa;margin-top:20px;" />
                 </div>
             </div>
         </div>
@@ -74,4 +93,42 @@
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $(function () {
+
+            /*
+            * Preview selected Image
+            */
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $("Img#imgpreview")
+                            .attr("src", e.target.result)
+                            .width(260)
+                            .height(260);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#mainPhoto").change(function () {
+                readURL(this);
+            });
+
+
+            //////////////////////////////////////////////////////////////
+
+            /*
+            * Reorder pages
+            */
+
+
+            //////////////////////////////////////////////////////////////
+        });
+
+    </script>
 }

@@ -1,26 +1,268 @@
 ﻿body {
 }
-/*.btn-link {
-    position: absolute;
-    width: 400px;
-    top: 15%;
-    right: 5%;
+#backto{
+    padding-left:70px;
 }
-.container{
-    margin-right:212px;
+#carouselExampleControls{
+    height:400px !important;
+    width:400px !important;
 }
-
-.container img {
-        height: 400px;
-        width: 400px;
+    #carouselExampleControls img {
+        height: 400px !important;
+        width: 400px !important;
     }
-.container dd,dt{
-    margin-bottom:15px;
+.sidenav1 {
+    height: 100%;
+    width: 150px;
+    position: absolute;
+    z-index: 1;
+    top: 24%;
+    left: 9%;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
-h2{
-    position:relative;
-    top:12%;
-    right:-10%;
-    margin-bottom:40px;
 
-}*/
+     .sidenav1 img {
+        height: 600px;
+    }
+.container {
+    max-width: 1440px;
+    padding: 0px;
+}
+#col1 {
+    text-align:center !important;
+    height: 400px !important;
+    width: 400px !important;
+}
+#h2 {
+    font-family:'Assistant','Arial',sans-serif;
+    color: #000;
+    font-size: 19pt;
+    font-weight:600;
+    padding-bottom:40px !important;
+}
+#price {
+    font-family: 'Assistant','Arial',sans-serif;
+    color: #6A8A9B;
+    font-size: 16pt !important;
+    font-weight: 900 !important;
+    padding-bottom: 40px !important;
+}
+#description {
+    font-family: 'Assistant','Arial',sans-serif;
+    font-size: 14pt;
+    font-weight:300;
+    height:105px;
+}
+#addtobasket {
+    position: relative;
+    font-family: 'Assistant','Arial',sans-serif !important;
+    color: #fff !important;
+    font-weight:600 !important;
+    font-size: 19pt !important;
+    margin-left: 0px;
+    background-image: linear-gradient(#f69226, #f27028) !important;
+    box-shadow: none !important;
+    border: 1px solid #f16a22 !important;
+    border-radius: 20px !important;
+    height: 50px !important;
+    width: 220px !important;
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+    text-align: center !important;
+   padding-left:30px !important;
+   padding-right:60px !important;
+   margin-top:80px;
+}
+#maincol{
+    padding-top:110px;
+}
+#carticon{
+    position:absolute;
+    top:13px;
+    right:45px;
+}
+#col2{
+    padding-top:30px;
+    text-align:left;
+}
+#undergal {
+    height: 80px !important;
+    width: 667px !important;
+    margin-right:20px !important;
+    font-size: 10pt;
+    display: flex;
+    margin-top: 10px;
+    background-color: #e2e3e2;
+    text-align:right;
+}
+    #undergal p {
+        font-family: 'Bellefair' ,'Arial',sans-serif ;
+        color:#5d5d5d !important;
+    }
+    #pbody{
+        font-size:14pt !important;
+    }
+#iconp{
+    padding-top:20px;
+    padding-right:0px;
+
+}
+#iconp img {
+    padding-left:20px !important;
+}
+    #colp{
+    padding-left:0px !important;
+    padding-right:0px !important;
+    padding-top:10px !important;
+}
+#title {
+    margin-bottom: 0px !important;
+    font-weight: 600;
+    font-size:16pt;
+}
+#undergal img {
+    height: 45px !important;
+    width: 60px !important;
+}
+#row1 {
+    margin: 0px;
+    float: right;
+    display: inline;
+    clear: none;
+}
+#rowundergal {
+    left: 50px;
+}
+    @media only screen and (max-width: 600px) {
+        #rowundergal{
+            left:0 !important;
+        }
+        #undergal{
+            position:relative;
+            width:100% !important;
+            padding-left:0px !important;
+            font-size:12pt !important;
+            margin-right:0px !important;
+        }
+        #colp{
+            position:relative;
+            width:250vw !important;
+            padding-top:0px !important;
+        }
+        #iconp {
+            width:10vw;
+        }
+        #iconp img{
+            padding-left:15px !important;
+        }
+        #row2{
+            position:absolute;
+            top:650px;
+            left:0;
+            right:0;
+        }
+        #iconp {
+            padding-left: 0px !important;
+        }
+        .sidenav1{
+        display:none;
+    }
+        #pbody {
+            font-size: 12pt !important;
+        }
+        #title {
+            font-size: 12pt !important;
+        }
+        #undergal img{
+            height:30px !important;
+            width:45px !important;
+        }
+    footer {
+        position: absolute;
+        top:940px;
+        width: 100%;
+        height: 280px;
+    }
+        
+        #tblpaypal {
+            position: absolute;
+            top: 0px;
+            left: 1px;
+        }
+    #maincol{
+        position:relative;
+        padding-top:10px !important;
+    }
+    #col1 {
+        position: absolute;
+        top: 0;
+        left:10%;
+    }
+    #col2 {
+        position: absolute;
+        padding-left:0px !important;
+        padding-right:0px !important;
+        top: 260px;
+        left: 2%;
+        text-align:center;
+        padding-top:80px;
+        height:350px;
+    }
+        #name {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+    #carouselExampleControls {
+        position: absolute;
+        top: 10%;
+        height: 290px !important;
+        width: 290px !important;
+        box-shadow: 1px 1px 16px 3px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        margin-bottom: 5px;
+    }
+        #carouselExampleControls img {
+            height: 290px !important;
+            width: 290px !important;
+        }
+        #col1 {
+        text-align: left !important;
+        height: 350px !important;
+        width: 290px !important;
+    }
+    footer {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #containrf {
+        height: 105vh;
+        
+    }
+    #backto{
+        position:absolute;
+        left:-5%;
+        top:2%;
+        font-size:9pt;
+        padding-left:unset !important;
+    }
+    #price{
+        position:absolute;
+        top:140px;
+        width:100%;
+        font-size:25pt !important;
+    }
+    #description{
+        position:absolute;
+        width:100%;
+        top:30px;
+    }
+    #addtobasket{
+        position:absolute;
+        top:180px;
+        left:10vw;
+        margin-top:10px !important;
+    }
+    #h2{
+        padding-bottom:0 !important;
+    }
+}

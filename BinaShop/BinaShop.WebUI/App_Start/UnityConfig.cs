@@ -53,6 +53,10 @@ namespace BinaShop.WebUI
             container.RegisterType<IRepository<BasketItem>, SQLRepository<BasketItem>>();
             container.RegisterType<IRepository<Customer>, SQLRepository<Customer>>();
             container.RegisterType<IRepository<Order>, SQLRepository<Order>>();
+            container.RegisterType<IRepository<Photo>, SQLRepository<Photo>>();
+            container.RegisterType<IRepository<PriceOffer>, SQLRepository<PriceOffer>>();
+            container.RegisterType<IRepository<ShopBanner>, SQLRepository<ShopBanner>>();
+            container.RegisterType<IRepository<GalleryPic>, SQLRepository<GalleryPic>>();
 
             container.RegisterType<IBasketService, BasketService>();
             container.RegisterType<IOrderService, OrderService>();

@@ -1,45 +1,145 @@
 ﻿@model BinaShop.Core.Models.EmailFormModels
-    <style>
-        .col-sm-10 {
-            width: fit-content;
-        }
-    </style>
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <h2>צור קשר</h2>
-    <div class="container" style="text-align:right;">
-        <div class="form-group">
-            @Html.LabelFor(m => m.FromName, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.FromName)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.FromEmail, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.FromEmail)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Message, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
-                @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Message)
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <input type="submit" class="btn btn-full" value="שלח הודעה" style="background-color:#a3f5fa;" />
-            </div>
-        </div>
-    </div>
+<style>
+    h2{
+        color:#fff !important;
+    }
+    .col-sm-10 {
+        width: fit-content;
+    }
 
+    .form-control1 {
+        display: inline-block;
+        border-radius: 300px;
+        width: 100% !important;
+        box-sizing: border-box;
+        max-width: 500px;
+        height: 55px;
+        border: 1px solid #AFD1D1;
+        background-color: #AFD1D1;
+        padding-right: 10px;
+        border: 2px solid #fff;
+    }
+    .form-control2 {
+        display: inline-block;
+        border-radius: 300px;
+        width: 100% !important;
+        max-width: 500px;
+        box-sizing: border-box;
+        height: 55px;
+        border: 1px solid #D9E7E7;
+        background-color: #D9E7E7;
+        padding-right: 10px;
+        border: 2px solid #fff;
+    }
+    .form-control3 {
+        display: inline-block;
+        border-radius: 10px;
+        width: 100% !important;
+        max-width: 500px;
+        box-sizing: border-box;
+        height: 200px;
+        border: 1px solid #F6E8DF;
+        background-color: #F6E8DF;
+        padding-right: 10px;
+        border: 2px solid #fff;
+    }
+    .form-control1 input {
+        width: 100% !important;
+        box-sizing: border-box;
+        max-width: 500px;
+    }
+    .form-control2 input {
+        width: 100% !important;
+        box-sizing: border-box;
+        max-width: 500px;
+    }
+    .form-control3 input {
+        width: 100% !important;
+        box-sizing: border-box;
+        max-width: 500px;
+    }
+        .btn-full:hover,
+        .btn-full:active {
+            border: 1px solid #CC9999;
+        }
+    body{
+        background-image:url("../../Content/Images/רקע.png");
+        background-position:center;
+        background-size:100% 100%;
+        background-repeat:no-repeat;
+
+    }
+    .field-validation-error {
+        display: flex;
+        color:#ff3636;
+        text-align:center !important;
+    }
+   .form-group{
+       width:100%;
+       max-width:500px;
+   }
+</style>
+@{
+    ViewBag.Title = "צור קשר";
 }
+<h2>צור קשר</h2>
+@if (TempData["SM"] != null)
+{
+    <div class="text-center alert alert-success" style="width:400px;margin:auto;margin-bottom:15px;">
+        @TempData["SM"]
+    </div>
+}
+
+        
+            
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                <div class="container" style="text-align:center;">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12">
+                                @Html.TextBoxFor(m => m.FromName, new { @class = "form-control1", @placeholder = "  הקלד שם..." })
+                                @Html.ValidationMessageFor(m => m.FromName)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12">
+                                @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control2", @placeholder = "  הקלד דואר אלקטרוני..." })
+                                @Html.ValidationMessageFor(m => m.FromEmail)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12">
+                                @Html.TextAreaFor(m => m.Message, new { @class = "form-control3", @placeholder = "  הקלד הודעה..." })
+                                @Html.ValidationMessageFor(m => m.Message)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group" style="width: 100%;
+    box-sizing:border-box;max-width:500px;">
+                            <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" style="float:left;padding:0px;">
+                                <input type="submit" class="btn btn-full" value="שלח הודעה" style="background-color:#CC9999;border-radius:150px;color:#F1E6E6;margin-top:15px;margin-bottom:20px;font-size:14pt;width:150px;float:left;" />
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    }
+                
+           
+        
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+        
+
 }
 

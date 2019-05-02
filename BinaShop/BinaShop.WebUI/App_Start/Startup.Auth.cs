@@ -54,10 +54,10 @@ namespace BinaShop.WebUI
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
+            app.UseFacebookAuthentication(
+               appId: "744761659252751",
+               appSecret: "4d17519228036f09cda77f95168af943");
+        
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
             //    ClientId = "",

@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,12 +42,43 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Source, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PayPal.2.0.0-rc2\lib\netstandard2.0\Source.dll</HintPath>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.8.0.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.8.0\lib\net451\PayPal.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,6 +111,122 @@
     <Compile Include="Migrations\201901130959317_ProductListViewModel.cs" />
     <Compile Include="Migrations\201901130959317_ProductListViewModel.Designer.cs">
       <DependentUpon>201901130959317_ProductListViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901171615388_ProductCategory.cs" />
+    <Compile Include="Migrations\201901171615388_ProductCategory.Designer.cs">
+      <DependentUpon>201901171615388_ProductCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201252515_Photo.cs" />
+    <Compile Include="Migrations\201901201252515_Photo.Designer.cs">
+      <DependentUpon>201901201252515_Photo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201423207_Product1.cs" />
+    <Compile Include="Migrations\201901201423207_Product1.Designer.cs">
+      <DependentUpon>201901201423207_Product1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201425361_Photo1.cs" />
+    <Compile Include="Migrations\201901201425361_Photo1.Designer.cs">
+      <DependentUpon>201901201425361_Photo1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201428138_Photo2.cs" />
+    <Compile Include="Migrations\201901201428138_Photo2.Designer.cs">
+      <DependentUpon>201901201428138_Photo2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201612096_Photo3.cs" />
+    <Compile Include="Migrations\201901201612096_Photo3.Designer.cs">
+      <DependentUpon>201901201612096_Photo3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201814219_Product2.cs" />
+    <Compile Include="Migrations\201901201814219_Product2.Designer.cs">
+      <DependentUpon>201901201814219_Product2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901211152293_Product3.cs" />
+    <Compile Include="Migrations\201901211152293_Product3.Designer.cs">
+      <DependentUpon>201901211152293_Product3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901211838070_Photo4.cs" />
+    <Compile Include="Migrations\201901211838070_Photo4.Designer.cs">
+      <DependentUpon>201901211838070_Photo4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901220858448_Product4.cs" />
+    <Compile Include="Migrations\201901220858448_Product4.Designer.cs">
+      <DependentUpon>201901220858448_Product4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901231317397_Product5.cs" />
+    <Compile Include="Migrations\201901231317397_Product5.Designer.cs">
+      <DependentUpon>201901231317397_Product5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901231415444_Product6.cs" />
+    <Compile Include="Migrations\201901231415444_Product6.Designer.cs">
+      <DependentUpon>201901231415444_Product6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901231615474_Photo5.cs" />
+    <Compile Include="Migrations\201901231615474_Photo5.Designer.cs">
+      <DependentUpon>201901231615474_Photo5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901232053313_Photo6.cs" />
+    <Compile Include="Migrations\201901232053313_Photo6.Designer.cs">
+      <DependentUpon>201901232053313_Photo6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901301329107_PriceOffer1.cs" />
+    <Compile Include="Migrations\201901301329107_PriceOffer1.Designer.cs">
+      <DependentUpon>201901301329107_PriceOffer1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901301630045_PriceOffer2.cs" />
+    <Compile Include="Migrations\201901301630045_PriceOffer2.Designer.cs">
+      <DependentUpon>201901301630045_PriceOffer2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902061350518_PriceOffer3.cs" />
+    <Compile Include="Migrations\201902061350518_PriceOffer3.Designer.cs">
+      <DependentUpon>201902061350518_PriceOffer3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902071417345_Customer.cs" />
+    <Compile Include="Migrations\201902071417345_Customer.Designer.cs">
+      <DependentUpon>201902071417345_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902180947196_Order.cs" />
+    <Compile Include="Migrations\201902180947196_Order.Designer.cs">
+      <DependentUpon>201902180947196_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902181112487_OrderItem.cs" />
+    <Compile Include="Migrations\201902181112487_OrderItem.Designer.cs">
+      <DependentUpon>201902181112487_OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902181245178_Order1.cs" />
+    <Compile Include="Migrations\201902181245178_Order1.Designer.cs">
+      <DependentUpon>201902181245178_Order1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902181803471_Order2.cs" />
+    <Compile Include="Migrations\201902181803471_Order2.Designer.cs">
+      <DependentUpon>201902181803471_Order2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903070822186_ShopBanner.cs" />
+    <Compile Include="Migrations\201903070822186_ShopBanner.Designer.cs">
+      <DependentUpon>201903070822186_ShopBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903071343275_ShopBanner1.cs" />
+    <Compile Include="Migrations\201903071343275_ShopBanner1.Designer.cs">
+      <DependentUpon>201903071343275_ShopBanner1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903071428230_ShopBanner2.cs" />
+    <Compile Include="Migrations\201903071428230_ShopBanner2.Designer.cs">
+      <DependentUpon>201903071428230_ShopBanner2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903071515139_ShopBanner3.cs" />
+    <Compile Include="Migrations\201903071515139_ShopBanner3.Designer.cs">
+      <DependentUpon>201903071515139_ShopBanner3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903080840207_GalleryPic.cs" />
+    <Compile Include="Migrations\201903080840207_GalleryPic.Designer.cs">
+      <DependentUpon>201903080840207_GalleryPic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903080902058_GalleryPic1.cs" />
+    <Compile Include="Migrations\201903080902058_GalleryPic1.Designer.cs">
+      <DependentUpon>201903080902058_GalleryPic1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903081357281_ShopBanner4.cs" />
+    <Compile Include="Migrations\201903081357281_ShopBanner4.Designer.cs">
+      <DependentUpon>201903081357281_ShopBanner4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +266,96 @@
     <EmbeddedResource Include="Migrations\201901130959317_ProductListViewModel.resx">
       <DependentUpon>201901130959317_ProductListViewModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901171615388_ProductCategory.resx">
+      <DependentUpon>201901171615388_ProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201252515_Photo.resx">
+      <DependentUpon>201901201252515_Photo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201423207_Product1.resx">
+      <DependentUpon>201901201423207_Product1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201425361_Photo1.resx">
+      <DependentUpon>201901201425361_Photo1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201428138_Photo2.resx">
+      <DependentUpon>201901201428138_Photo2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201612096_Photo3.resx">
+      <DependentUpon>201901201612096_Photo3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201814219_Product2.resx">
+      <DependentUpon>201901201814219_Product2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901211152293_Product3.resx">
+      <DependentUpon>201901211152293_Product3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901211838070_Photo4.resx">
+      <DependentUpon>201901211838070_Photo4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901220858448_Product4.resx">
+      <DependentUpon>201901220858448_Product4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901231317397_Product5.resx">
+      <DependentUpon>201901231317397_Product5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901231415444_Product6.resx">
+      <DependentUpon>201901231415444_Product6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901231615474_Photo5.resx">
+      <DependentUpon>201901231615474_Photo5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901232053313_Photo6.resx">
+      <DependentUpon>201901232053313_Photo6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901301329107_PriceOffer1.resx">
+      <DependentUpon>201901301329107_PriceOffer1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901301630045_PriceOffer2.resx">
+      <DependentUpon>201901301630045_PriceOffer2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902061350518_PriceOffer3.resx">
+      <DependentUpon>201902061350518_PriceOffer3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071417345_Customer.resx">
+      <DependentUpon>201902071417345_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902180947196_Order.resx">
+      <DependentUpon>201902180947196_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902181112487_OrderItem.resx">
+      <DependentUpon>201902181112487_OrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902181245178_Order1.resx">
+      <DependentUpon>201902181245178_Order1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902181803471_Order2.resx">
+      <DependentUpon>201902181803471_Order2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903070822186_ShopBanner.resx">
+      <DependentUpon>201903070822186_ShopBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071343275_ShopBanner1.resx">
+      <DependentUpon>201903071343275_ShopBanner1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071428230_ShopBanner2.resx">
+      <DependentUpon>201903071428230_ShopBanner2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071515139_ShopBanner3.resx">
+      <DependentUpon>201903071515139_ShopBanner3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903080840207_GalleryPic.resx">
+      <DependentUpon>201903080840207_GalleryPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903080902058_GalleryPic1.resx">
+      <DependentUpon>201903080902058_GalleryPic1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903081357281_ShopBanner4.resx">
+      <DependentUpon>201903081357281_ShopBanner4.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

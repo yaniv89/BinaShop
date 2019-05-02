@@ -1,5 +1,7 @@
-﻿
+﻿@model BinaShop.Core.ViewModels.ShopBannerViewModel
 @{
+    /**/
+
     ViewBag.Title = "Home Page";
     Layout = null;
 }
@@ -13,98 +15,307 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <link rel=stylesheet type="text/css" href="~/Content/Yiddishkeit AlefAlefAlef Bold.ttf">
     <link rel=stylesheet type="text/css" href="~/Content/IndexHome.css">
     <title>הלוכדים של בינה</title>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136153503-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136153503-1');
+    </script>
 </head>
 <body dir="rtl">
-    <nav class="main-nav navbar navbar-expand-lg" style="font-size:20px;background-color: rgba(0, 226, 241, 0.36);">
-        <a class="navbar-brand" href="/Home/Index"><img src="~/Content/Bina_Logo.png" style="height:55px;position:relative;" /></a>
-        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <div class="backgroun_loader" id="loadingEl">
+        <h1 class="ml8" id="loadingEl">
+            <span class="letters-container" id="loadingEl">
+                <span class="letters letters-left" id="loadingEl">טוען</span>
+                <span class="letters bang" id="loadingEl">.</span>
+                <span class="letters bang1" id="loadingEl">.</span>
+                <span class="letters bang2" id="loadingEl">.</span>
+
+            </span>
+            <span class="circle circle-white" id="loadingEl"></span>
+            <span class="circle circle-dark" id="loadingEl"></span>
+            <span class="circle circle-container" id="loadingEl"><span class="circle circle-dark-dashed" id="loadingEl"></span></span>
+        </h1>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <nav class="main-nav navbar navbar-expand-lg" id="mainNav">
+
+        <button class="navbar-toggler navbar-light" id="navtoggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" id="togglericon"></span>
 
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" id="ulnav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/Home/Products">לוכדי חלומות<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/Home/Index">דף הבית</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">סדנאת לוכדי חלומות</a>
+                    <a class="nav-link" href="/Home/Products">חנות</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Home/Sadna">סדנאת לוכדי חלומות</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/Home/Contact">צור קשר</a>
                 </li>
                 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                 {
-                    <li><a href="/Admin/Index" style="display:grid;">מנהל</a></li>
+                    <li><a href="/Admin/Index" id="aadmin">מנהל</a></li>
                 }
 
             </ul>
 
-            <ul class="navbar-nav mr-auto" style="display:inline-block!important;">
+            <ul class="navbar-nav mr-auto" id="mrauto">
                 @Html.Partial("_LoginPartial")
 
             </ul>
         </div>
     </nav>
-    <div class="jumbotron jumbotron-fluid" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.7)), url(/Content/264.jpg);height:100vh;background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% auto;z-index:-20;background-size:cover;"></div>
-    <div class="container-fluid">
+    @foreach (var Banner in Model.ShopBanners.Where(x => x.Id == "76d75f41-ed81-47e5-b7a6-2497fdb59bdb"))
+    {
+        <div class="jumbotron jumbotron-fluid" id="background" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../../Content/Banners/@Banner.Image);">
 
-    </div>
-    <div class="container" style="margin-top:-400px;float:left;">
-        <div class="bina-text-box1">
-            <h1 style="color:whitesmoke;">להתראות סיוטים.<br> שלום חלומות נעימים.</h1>
-            <a class="btn btn-full" href="/Account/Register">הרשם עכשיו</a>
-            <a class="btn btn-ghost" href="/Home/Products">הראה לי עוד</a>
+          
+                    <div class="row" id="logorow">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <img class="img-fluid" id="logo1" src="~/Content/0.png" />
+                            </div>
+                        </div>
+                    <div class="row" id="btnrow">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <a class="btn btn-full" href="/Account/Register">הרשם עכשיו</a>
+                            <a class="btn btn-ghost" href="/Home/Products">לחנות</a>
+                            </div>
+                        </div>
+                    
+        </div>
+    }
+    <div class="col-sm-12" id="col1">
+        <div class="row">
+            <div class="col-sm-8" id="col2">
+
+                <h6 id="H6">קצת עלינו</h6>
+                <p class="text-body">
+                    הלוכדים של בינה יוצרים באהבה וכוונה טובה לוכדי חלומות בעבודת יד ,<br />
+                    מתנות מקוריות לאישה ולגבר, מתנות ליולדת<br />
+                    ולחברה הכי טובה.
+                    לוכדי החלומות כיום נחשבים לאופנתים<br />
+                    ונוכחים ברוב הבתים על מנת לתת טאצ' שלבוהו שיק וגם..<br />
+                    לעזור לילדים שלנו לישון טוב יותר בלילה.
+                    לוכדי החלומות באו אלינו מהאמונה האינדיאנית<br />
+                    ומטרתם הייתה לגרש את הסיוטים ולשמור רק את החלומות הטובים .<br />
+                    ולכן , הוא מגיע עם רשת באמצע העיגול
+                    שבא הוא "תופס" את הסיוטים.
+                    עם הזמן לוכד החלומות עבר גלגול והגיע אלינו בשלל צורות
+                    עם הדמויות האהובות , עם שיבוץ אבנים מיוחדות<br />
+                    ואפילו תוכלו למצוא פה לוכדי חלומות זוהרים בחושך!<br />
+                    יש גדולים ויש קטנים.. ואם חשקתם להכין אחד משלכם<br />
+                    מוזמנים ליצור איתי קשר ולהצטרף
+                    לסדנה להכנת לוכד חלומות עשה זאת בעצמך!
+                    יש סדנאות לילדים, למסיבת רווקות , לגני ילדים
+                    וסדנאות למבוגרים.
+                    תנו לעצמכם רגע לנוח מהכל ,
+                    לשבת וליצור לוכד חלומות משלכם . לחצו על סדנאות .<br />
+                    <br />
+                    <strong>
+                        לפני שתמשיכו לרחף בין כל הדגמים הנה קצת הסיפור של בינה..<br />
+                        על איך הכל התחיל ?
+                    </strong><br /><br />
+                    בשנת 2018 בינה עברה תאונת דרכים שקיבעה אותה לביתה.<br />
+                    חלק מתהליך הפיזיותרפיה שלה הייתה עושה הליכה בחוף הים.<br />
+                    מיום ליום שראתה איך הזיהום שבחוף הולך וגובר<br />
+                    ניסתה ליצור לעצמה פרויקט קטן ומכל טיול הייתה<br />
+                    אוספת פריט אחד ויוצרת ממנו מיצג אומנותי.
+                    וכך מעיגול מתכתי אחד שנמצא החלו ידה ליצור לוכד חלומות.<br />
+                    ומאחד זה נהפך לשניים ומכאן המספר רק גדל.<br />
+                    כל אחד נוצר בכוונה ואהבה גדולה .
+                    למלא את החדרים שלכם בקסם מיוחד.
+                    ללוכדי החלומות הצטרפו גם משפטים שעברו טיפוגרפיה שלה
+                    ומוסגרו במסגרות עץ מתוקות.
+                    נוספו ערכות מתנה עם שוקולדים ודובים.
+                    ובהמשך יהיו עוד הפתעות.. אז כדאי להיכנס ולהתעדכן איתנו!<br />
+
+                </p>
+                <a class="btn btn-full" href="/Home/Contact">צור קשר</a>
+            </div>
+            <div class="col-sm-4" id="col3">
+                @foreach (var Banner in Model.ShopBanners.Where(x => x.Id == "81e422c6-a78e-49d1-b743-14cf25251955"))
+                {
+                    <img class="img-fluid" src="~/Content/Banners/@Banner.Image" />
+                }
+                </div>
         </div>
     </div>
-    <div class="container">
 
-
-
-        <h2>הלוכדים של בינה</h2>
-
-
-        <p class="long-copy">
-            הלוכדים של בינה נעשים בעבודת יד, לכן כל לוכד הוא מיוחד!
-        </p>
-
-
-
-        <div class="row" style="text-align:right;">
-            <div class="col-sm-3">
-                <div class="icon4 big-icon">
-                    <ion-icon name="send"></ion-icon>
+    <div class="col-sm-12" id="col4">
+        <div class="row">
+            <div class="col-sm-12" id="col5">
+                <div class="col-sm-7">
+                    <h6 id="H6">ככה הכל התחיל</h6>
                 </div>
-                <h3>משלוח מהיר</h3>
-                <p>לרוכשים מובטח משלוח מהיר, ככל שתמהרו להזמין, הלוכד יגיע מהר יותר.</p>
+                <div class="span-5-of-12"></div>
             </div>
-            <div class="col-sm-3">
-                <div class="icon3 big-icon">
-                    <ion-icon name="photos"></ion-icon>
-                </div>
-                <h3>תמונות מדליקות</h3>
-                <p>תמונות מדליקות בעיצוב מקורי, שנון ומצחיק שמוסיף אוירה הביתה.</p>
+
+            <div class="col-sm-3" id="col6">
+                <img class="img-fluid" id="imgcol6" src="~/Content/2.png" />
+                <p class="text-body3">
+                    במהלך תרגול הפיזיותרפיה<br />
+                    על חוף הים,נגלה לפניה עיגול<br />
+                    מתכתי שדומה לשלדה של טסה.<br />
+                    בעקבות התגברות הזיהום<br />
+                    בחופי הים, חשבה בינה<br />
+                    איך היא תתרום לשינוי<br />
+                    ולניקיון החוף,<br />
+                    ולכן אימצה את החלק.
+                </p>
+
             </div>
-            <div class="col-sm-3">
-                <div class="icon2 big-icon">
-                    <ion-icon name="color-palette"></ion-icon>
-                </div>
-                <h3>סדנאות יצירה.</h3>
-                <p>סדנאות יצירת לוכד חלומות אישי לילדים &mdash; הנאה מובטחת!</p>
+
+            <div class="col-sm-1" id="col7">
+                <img id="hetz" class="img-fluid hetz" src="~/Content/4.png" />
             </div>
-            <div class="col-sm-3">
-                <div class="icon1 big-icon">
-                    <ion-icon name="heart"></ion-icon>
+
+
+            <div class="col-sm-3" id="col8">
+                <img class="img-fluid" id="imgcol6" src="~/Content/3.png" />
+                <div class="text-body2">
+                    בינה החלה לתכנן וליצור<br />
+                    עם חוטים ישנים,<br />
+                    צדפים שנאספו במהלך הימים<br />
+                    וכך יצרה לה לוכד חלומות<br />
+                    שכל כולו מפסולת שנמצאה בים.
                 </div>
-                <h3>לוכדי חלומות</h3>
-                <p>לוכדי חלומות במגוון עיצובים מקוריים וייחודיים שיבריחו את הסיוטים!</p>
+            </div>
+            <div class="col-sm-1" id="col7">
+                <img id="hetz" class="img-fluid hetz" src="~/Content/4.png" />
+            </div>
+            <div class="col-sm-3" id="col8">
+                <img class="img-fluid" src="~/Content/3.5 (2).png" id="imgcol6" />
+                <p class="text-body1">
+                    צעד קטן שבא לעזור לסביבה<br />
+                    התגלגל וגדל להיות לחברה<br />
+                    שמייצרת לוכדי חלומות בעבודת יד<br />
+                    באמונה שכל אחד יכול לגרום לשינוי.<br />
+                    רוצים לעזור לים?<br />
+                    חפשו את קטגוריה <a class="btn-link" href="/Home/Products?Category=מהים">מהים</a>.
+                </p>
+
+            </div>
+        </div>
+        <div class="col-sm-12" id="col7">
+            <a class="btn btn-full" href="/Home/Products" id="tostore">לחנות</a>
+        </div>
+    </div>
+
+    <div class="col-sm-12" id="col9">
+        <div class="row">
+            <div class="col-sm-12" style="padding-bottom:50px;">
+                <div class="col-sm-7">
+                    <h6 id="H6">כמה דברים שצריך לדעת</h6>
+                </div>
+                <div class="span-5-of-12"></div>
+            </div>
+            <div class="col-sm-3" id="matana">
+                <img class="img-fluid" src="~/Content/מתנה.png" id="imgmatana" />
+                <h5 id="H5">עיצוב אישי</h5>
+                <p id="pMatana">
+                    רוצים לוכד חלומות<br />
+                    בעיצוב אישי?<br />
+                    ניתן לבחור צבעים<br />
+                    להוסיף שמות<br />
+                    או לחבר תליון מיוחד<br />
+                    דברו איתי<br />
+                    דרך הצור קשר
+                </p>
+            </div>
+            <div class="col-sm-3" id="masait">
+                <img class="img-fluid" src="~/Content/משאית.png" id="imgmasait" />
+                <h5 id="H5">משלוח</h5>
+                <p id="pMatana">
+                    משלוחים לכל<br />
+                    חלקי הארץ<br />
+                    עד 30 ימי עסקים<br />
+                    *לא כולל אזורים<br />
+                    מעבר לקו הירוק.
+                </p>
+            </div>
+            <div class="col-sm-3" id="coins">
+                <img class="img-fluid" src="~/Content/מטבעות.png" id="imgcoins" />
+                <h5 id="H5">החזר כספי</h5>
+                <p id="pMatana">
+                    החזר כספי<br />
+                    על ביטול עסקה<br />
+                    עד שבוע<br />
+                    מרגע התשלום<br />
+                    ובתנאי שהמשלוח<br />
+                    לא יצא מהסניף.
+                </p>
+            </div>
+            <div class="col-sm-3" id="sal">
+                <img class="img-fluid" src="~/Content/סל.png" id="imgsal" />
+                <h5 id="H5">כזה יש רק אחד</h5>
+                <p id="pMatana">
+                    כל מוצר באתר<br />
+                    נעשה מכל הלב<br />
+                    בהשקעה רבה<br />
+                    ובעבודת יד<br />
+                    מסורה.<br />
+                    ולכן יש רק אחד<br />
+                    מכל אחד!
+                </p>
             </div>
         </div>
     </div>
+    <div class="col-sm-12" id="col10">
+        <div class="row">
+            <div class="col-sm-12" id="col5">
+                <div class="col-sm-8">
+                    <h6 id="H6">מה באתר</h6>
+                </div>
+                <div class="span-4-of-12"></div>
+            </div>
+            <div class="col-sm-3" id="col11">
+                <a href="/Home/Products?Category=ערכות%20מתנה">
+                    <img class="img-fluid" src="~/Content/Untitled-1.png" id="img2" />
+                    <h4 id="H4">ערכות מתנה</h4>
+                </a>
+            </div>
+            <div class="col-sm-3" id="col11">
+                <a href="/Home/Products?Category=לוכדי%20חלומות">
+                    <img class="img-fluid" src="~/Content/7.png" id="img2" />
+                    <h4 id="H4">לוכדי חלומות</h4>
+                </a>
+            </div>
+            <div class="col-sm-3" id="col11">
+                <a href="@Url.Action("Sadna", "Home")">
+                    <img class="img-fluid" src="~/Content/6.png" id="img2" />
+                    <h4 id="H4">סדנאות יצירה</h4>
+                </a>
+            </div>
+            <div class="col-sm-3" id="col11">
+                <a href="/Home/Products?Category=משפטים">
+                    <img class="img-fluid" src="~/Content/5.png" id="img2" />
+                    <h4 id="H4">משפטים ממוסגרים</h4>
+                </a>
+            </div>
+            <div class="col-sm-12">
+                <img class="img-fluid" src="~/Content/8.png" id="imgcol6" />
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer1">
+        <p id="pfooter">תעקבו אחרינו, אחרי החלומות שלנו וכל הסיפור מאחוריהם</p>
+        <a class="instagram" href="https://www.instagram.com/Bina_Vodovoz/"><img class="img" src="~/Content/9.png" /></a>
+        <a class="facebook" href="https://www.facebook.com/halohdim/"><img class="img" src="~/Content/10.png" /></a>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -115,6 +326,71 @@
 </html>
 
 
+<script>
+
+    anime.timeline({ loop: true })
+        .add({
+            targets: '.ml8 .circle-white',
+            scale: [0, 3],
+            opacity: [1, 0],
+            easing: "easeInOutExpo",
+            rotateZ: 360,
+            duration: 1100
+        }).add({
+            targets: '.ml8 .circle-container',
+            scale: [0, 1],
+            duration: 1100,
+            easing: "easeInOutExpo",
+            offset: '-=1000'
+        }).add({
+            targets: '.ml8 .circle-dark',
+            scale: [0, 1],
+            duration: 1100,
+            easing: "easeOutExpo",
+            offset: '-=600'
+        }).add({
+            targets: '.ml8 .letters-left',
+            scale: [0, 1],
+            duration: 1200,
+            offset: '-=550'
+        }).add({
+            targets: '.ml8 .bang',
+            scale: [0, 1],
+            rotateZ: [15, 15],
+            duration: 1200,
+            offset: '-=1000'
+        }).add({
+            targets: '.ml8 .bang1',
+            scale: [0, 1],
+            rotateZ: [30, 15],
+            duration: 1200,
+            offset: '-=1000'
+        }).add({
+            targets: '.ml8 .bang2',
+            scale: [0, 1],
+            rotateZ: [15, 15],
+            duration: 1200,
+            offset: '-=1000'
+        }).add({
+            targets: '.ml8',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1400
+        });
+
+    anime({
+        targets: '.ml8 .circle-dark-dashed',
+        rotateZ: 360,
+        duration: 8000,
+        easing: "linear",
+        loop: true
+    });
+</script>
+<script>
+    $(window).on('load', function () {
+        $('#loadingEl').remove();
+    })
+</script>
 
 
-    

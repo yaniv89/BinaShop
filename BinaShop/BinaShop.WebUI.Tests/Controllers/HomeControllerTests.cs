@@ -12,23 +12,23 @@ using BinaShop.Core.ViewModels;
 
 namespace BinaShop.WebUI.Tests.Controllers
 {
-    [TestClass]
-    public class UnitTest1
-    {
-        [TestMethod]
-        public void ProductPageDoesReturnProducts()
-        {
-            IRepository<Product> productContext = new Mocks.MockContext<Product>();
-            IRepository<ProductCategory> productCategoryContext = new Mocks.MockContext<ProductCategory>();
+    //[TestClass]
+    //public class UnitTest1
+    //{
+    //    [TestMethod]
+    //    public void ProductPageDoesReturnProducts()
+    //    {
+    //        IRepository<Product> productContext = new Mocks.MockContext<Product>();
+    //        IRepository<ProductCategory> productCategoryContext = new Mocks.MockContext<ProductCategory>();
 
-            productContext.Insert(new Product());
+    //        productContext.Insert(new Product());
 
-            HomeController controller = new HomeController(productContext, productCategoryContext);
+    //        HomeController controller = new HomeController(productContext, productCategoryContext);
 
-            var result = controller.Products() as ViewResult;
-            var viewModel = (ProductListViewModel) result.ViewData.Model;
+    //        var result = controller.Products() as ViewResult;
+    //        var viewModel = (ProductListViewModel) result.ViewData.Model;
 
-            Assert.AreEqual(1, viewModel.Products.Count());
-        }
-    }
+    //        Assert.AreEqual(1, viewModel.Products.Count());
+    //    }
+    //}
 }

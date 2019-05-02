@@ -10,9 +10,445 @@
 
 
 h4 {
-    font-size: 120%;
+    font-size: 12px;
     word-spacing: 1px;
-    text-align: center;
+    text-align: right;
     margin-top: 10px;
  
 }
+#addtobasket {
+    position: relative;
+    font-family: 'Assistant','Arial',sans-serif !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    font-size: 9pt !important;
+    margin-left: 0px;
+    background-image: linear-gradient(#f69226, #f27028) !important;
+    box-shadow: none !important;
+    border: 1px solid #f16a22 !important;
+    border-radius: 5px !important;
+    height: 30px !important;
+    width: 90px !important;
+    padding-top:5px !important;
+    padding-bottom:5px !important;
+    padding-left:12px !important;
+    padding-right:5px !important;
+    text-align: end !important;
+   left:-24%;
+}
+#carticon {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size:14pt;
+}
+#catpad{
+    padding-bottom:10px;
+}
+#col3 {
+    position: relative;
+    height: 450px !important;
+
+    padding-bottom: 20px;
+}
+#pname {
+    font-family: 'Varela Round','Arial',sans-serif !important;
+    font-size: 19pt;
+    font-weight: 800;
+    color: #000 !important;
+    padding-right: 27px;
+}
+.text-dots{
+    text-align:right;
+}
+#pricenew {
+    font-size: 14pt;
+    font-weight: 900;
+    color: #808080;
+    width: 175px !important;
+    padding-right:10px;
+}
+#backto{
+    padding-left:70px;
+}
+#col1{
+    text-align:right;
+}
+.card-img-top {
+    height: 260px;
+    width: 260px;
+}
+#colcat {
+    text-align: right !important;
+    padding-bottom: 30px;
+    padding-top: 40px;
+}
+
+#colb{
+    position:relative;
+}
+#coprod{
+    position:relative;
+}
+#colcatprod{
+    position:relative;
+    width:82%;
+    margin-left:auto;
+    margin-right:auto;
+}
+#banners {
+    position: relative;
+}
+.sidenav {
+    width: 150px;
+    position: absolute;
+    z-index: 1;
+    top: 11%;
+    right: 0;
+}
+.sidenav1 {
+    width: 150px;
+    position: absolute;
+    z-index: 1;
+    top: 11%;
+    left:0;
+    
+}
+.sidenav img,.sidenav1 img{
+    height:600px;
+}
+#c1{
+    text-align:center;
+    position:relative;
+    padding:0 0 0 0 !important;
+    margin:0 0 0 0 !important;
+   
+}
+h4 {
+    margin-right: 25px;
+    font-family: 'Varela Round','Arial',sans-serif !important;
+    font-size:17pt;
+}
+#catbutton{
+    background-color:#afd3d3 !important;
+    color:#fff !important;
+    border-radius:100px !important;
+    font-size:10pt !important;
+    font-weight:500;
+    width:100px;
+    padding:1px 1px 1px 1px;
+}
+#catbutton1 {
+    background-color: #ED1C24 !important;
+    color: #fff !important;
+    border-radius: 100px !important;
+    font-size: 10pt !important;
+    font-weight: 500;
+    width: 100px;
+    padding: 1px 1px 1px 1px;
+}
+    #catbutton1:hover {
+        background-color: #fa262e !important;
+    }
+
+#catbutton1 a {
+    color: #fff !important;
+    font-weight:800 !important;
+}
+
+    #catbutton1 a:hover {
+        border-bottom: none !important;
+        text-decoration: none !important;
+        background-color: #bad5b7 !important;
+    }
+#catbutton:hover {
+    background-color: #bad5b7 !important;
+}
+    #catbutton a {
+        color: #fff !important;
+    }
+    #catbutton a:hover {
+        border-bottom: none !important;
+        text-decoration: none !important;
+        background-color: #bad5b7 !important;
+    }
+#cat{
+    
+    display:contents;
+
+}
+#carouselExampleIndicators{
+    height:223px !important;
+    width:700px !important;
+    padding-top:25px !important;
+    padding-bottom:28px !important;
+    top:5%;
+
+}
+.carousel-item img{
+    height:223px;
+    width:700px;
+}
+#outside {
+
+    background-color: #f2eee3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}
+#inside {
+   
+    width: 78%;
+    height: 100%;
+    background-color: #faf8f5;
+    position: absolute;
+    top: 0%;
+    left: 11%;
+}
+#cfluid {
+    width:100%;
+    left:11%;
+    right:11%;
+    padding-top:1px;
+}
+#back{
+    padding-left:0px;
+    padding-right:0px;
+}
+.body-content{
+    max-width:100% !important;
+    padding: 0 0 0 0 !important;
+    
+}
+
+
+#tblpaypal{
+    position:absolute;
+    top:-20px;
+}
+ul.pagination {
+    position: absolute;
+    bottom: 0;
+    width: 20%;
+    height: 35px;
+    right: 50%;
+}
+.text-center {
+    position: relative;
+    top: 40px;
+    right: 35%;
+}
+#col2{padding-left:45px ;
+}
+.pagination-container{
+    text-align:center !important;
+}
+#col5 {
+    padding: 0 0 0 0 !important;
+    position: relative;
+}
+#col6 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    text-align: center !important;
+    position: relative;
+}
+#colgal{
+    position:relative;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+@media only screen and (max-width: 600px) {
+    #addtobasket{
+            left:0 !important;
+        }
+    #backto {
+        padding-left: unset !important;
+    }
+    .text-dots {
+        text-align: center !important;
+        width: 100%;
+    }
+        #cfluid {
+            width: 100% !important;
+            right:auto;
+            left:auto;
+            padding-top: 1px;
+        }
+        #outside {
+            display: none;
+        }
+
+        #inside {
+            display: none;
+        }
+
+        .sidenav {
+            display: none;
+        }
+
+        .sidenav1 {
+            display: none;
+        }
+
+
+        #carouselExampleIndicators {
+            height: 114px !important;
+            padding-top: 25px !important;
+            padding-bottom: 28px !important;
+            top: 5%;
+            left: 30px;
+        }
+
+        .carousel-item img {
+            height: 114px;
+            width: 100% !important;
+        }
+
+        #c1 {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        #colgal {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            width:100% !important;
+        }
+
+        #colcat {
+            text-align: right !important;
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+            padding-bottom: 30px;
+            padding-top: 40px;
+        }
+
+        #catpad {
+            width: 105px !important;
+            text-align:center;
+        }
+    #coprod {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    #colcatprod {
+        width: 100%;
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    #cat{
+        text-align:center;
+    }
+    #cfluid {
+        padding-right: 1px !important;
+        padding-left: 1px !important;
+        position: relative;
+    }
+
+        #colb {
+            padding-right: 1px !important;
+            padding-left: 1px !important;
+            position: relative;
+        }
+
+        #col3 {
+            height: 100% !important;
+        }
+
+        .card-img-top {
+            height: 260px !important;
+            width: 260px !important;
+        }
+
+        #col5 {
+            padding:0 0 0 0 !important;
+            position:relative;
+        }
+
+        #pname {
+            font-size: 13pt !important;
+            padding-right: 0px !important;
+        }
+
+        #pricenew {
+            font-size: 10pt !important;
+            padding-right: 0px !important;
+        }
+
+        #addtobasket {
+            height: 21px !important;
+            width: 114px !important;
+            font-size: 10pt !important;
+            padding-right: 25px !important;
+            padding-left: 25px !important;
+            padding-top: 0px !important;
+            padding-bottom: 0px !important;
+            text-align: center !important;
+        }
+
+        #carticon {
+            display: none;
+        }
+
+        #col2 {
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+            position:relative;
+        }
+
+        #col6 {
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+            text-align: center !important;
+            position:relative;
+        }
+
+        #col1 {
+            text-align: center !important;
+            position:relative;
+        }
+
+        footer {
+            position: relative;
+           
+            width: 100%;
+            height: 280px;
+        }
+
+        #tblpaypal {
+            position: relative;
+            top: 0;
+        }
+
+        ul.pagination {
+            position: relative !important;
+            margin-right: unset !important;
+        }
+
+        
+
+        .text-dots {
+            text-align: center !important;
+        }
+
+        .text-center {
+            position: unset !important;
+            top: unset !important;
+            right: unset !important;
+            margin-bottom: 0px !important;
+            margin-top: 30px !important;
+            padding-top: 0px !important;
+            padding-bottom: 0px !important;
+        }
+
+        #colcat {
+            padding-top: 15px !important;
+            margin-bottom: 0px !important;
+            margin-top: 0px !important;
+            padding-bottom: 65px !important;
+        }
+    }
+

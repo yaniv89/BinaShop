@@ -1,16 +1,135 @@
 ﻿body {
 }
-label{
-    width:590px;
-    padding-right:380px;
-    display:inline-block;
 
+.btn:link,
+.btn:visited {
+    display: inline-block !important;
+    padding: 10px 30px !important;
+    font-weight: 300 !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    border-radius: 200px !important;
+    transition: background-color 0.2s, border 0.2s, color 0.2s !important;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4) !important;
 }
-.form-control{
-    display:inline-block;
-    border-radius:300px;
-    width:270px;
-    height:25px;
-    border:1px solid teal;
+#cardReg {
+    position: relative;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4) !important;
+    width: 400px;
+    height: 400px;
+    background-image: url('/Content/Images/חלון הרשמה.jpg');
 }
 
+.btn-full:link,
+.btn-full:visited {
+    background-color: #AFD3D3 !important;
+    border: 1px solid #AFD3D3 !important;
+    color: #465454 !important;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    background-color: #465454 !important;
+    border: 1px solid #465454 !important;
+    color: #AFD3D3 !important;
+}
+
+
+.btn:hover,
+.btn:active {
+    background-color: #BAD5DB !important;
+}
+
+
+.btn-full:hover,
+.btn-full:active {
+    border: 1px solid #AFD3D3 !important;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #AFD3D3 !important;
+    color: #465454 !important;
+}
+#inputs {
+    padding:0px 0px 0px 0px;
+}
+label {
+    display: inline;
+}
+
+.form-control1, .form-control2 {
+    display: inline-block;
+    border-radius: 0px;
+    width: 100%;
+    height: 25px;
+    border: 1px solid #fff;
+    padding-top:1px;
+}
+
+.container {
+    max-width: 1440px;
+    padding: 0px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+
+.container-fluid{
+    padding-left:1px !important;
+    padding-right:1px !important;
+}
+
+#socialLoginForm {
+    padding: 30px 0 5px 0 !important;
+    margin-left:8% !important;
+}
+.field-validation-error {
+    position: relative;
+    display: inline-block;
+    width: max-content;
+    text-align: center;
+    font-size: 14pt;
+}
+#socialLoginList {
+    margin-right: 12%;
+}
+@media only screen and (max-width: 600px) {
+    #loginForm {
+        height: unset !important;
+    }
+    
+    #socialLoginForm {
+        padding: 30px 0 5px 0 !important;
+    }
+    #cardReg {
+        position: relative;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4) !important;
+        width: 100%;
+        height: 400px;
+        background-image: url('/Content/Images/חלון הרשמה.jpg');
+        background-size: 100% 100%;
+    }
+    #span {
+        display: none !important;
+    }
+
+    #inputs {
+        width: 100% !important;
+        text-align: right;
+    }
+
+    .form-control1, .form-control2 {
+        width: 85% !important;
+    }
+
+    #lock {
+        text-align: left;
+    }
+
+    #person {
+        text-align: left;
+    }
+}

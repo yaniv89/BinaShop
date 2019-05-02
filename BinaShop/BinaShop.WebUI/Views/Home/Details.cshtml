@@ -1,55 +1,121 @@
-﻿@model BinaShop.Core.Models.Product
+﻿@model BinaShop.Core.ViewModels.ProductViewModel
 
 @{
-    ViewBag.Title = Model.Name + "פרטים";
+    /**/
+
+    ViewBag.Title = Model.Name + " פרטים";
 }
 
 <head>
-    <link rel=stylesheet type="text/css" href="Vendors/Css/normalize.rtl.css">
-    <link rel=stylesheet type="text/css" href="~/Content/038 Grid.css">
+
     <link rel=stylesheet type="text/css" href="~/Content/DetailsHome.css">
     <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
-    </head>
-<div class="btn-link" style="text-align:right;">
-    @Html.ActionLink("חזרה לדף הראשי", "Index")<br />
+
+</head>
+@foreach (var Banner in Model.ShopBanners.Where(x => x.Id == "feaf1d5a-4164-4bbd-a404-a89e0dd963a3"))
+{
+    <div class="sidenav1">
+        <a href="@Banner.Link"><img src="~/Content/Banners/@Banner.Image" /></a>
+
     </div>
-<div class="btn-link" style="text-align:right;">
-    @Html.ActionLink("חזרה למוצרים", "Products")
-</div>
-    
-    
-<div class="container" style="text-align:-webkit-center;">
-    <h2>@Html.DisplayFor(model => model.Name)</h2>
-    <div class="col-sm-2">
-        <img class="img-fluid" src="~/Content/ProductImages/@Model.Image" />
-    </div>
-    <div class="col-sm-10">
-        <dl class="dl-horizontal">
+}
+    <div class="container-fluid" id="containrf">
+        <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" id="maincol">
+            <div class="row">
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
+                <div class="col-lg-5 col-md-5 col-xl-5 col-sm-5 col-12" id="col2">
+                    <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" id="name">
+                        <h5 id="h2">@Html.DisplayFor(model => model.Name)</h5>
+                        <dl class="dl-horizontal">
 
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
+                            <dd id="price">
+                                ₪@Html.DisplayFor(model => model.Price)
+                            </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
+                            <dd id="description">
+                                @Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>"))
+                            </dd>
 
-            <dd>
-                ₪@Html.DisplayFor(model => model.Price)
-            </dd>
+                            <dt></dt>
+                            <dd><a href="@Url.Action("AddToBasket", "Basket", new {  Id = Model.Product.Id})" class="btn btn-full" id="addtobasket"><ion-icon name="cart" id="carticon"></ion-icon>הוסף לסל</a></dd>
 
-            <dt></dt>
-            <dd><a href="@Url.Action("AddToBasket", "Basket", new { Id = Model.Id })" class="btn btn-full">הוסף לסל</a></dd>
+                            <dt></dt>
 
-            <dt></dt>
+                        </dl>
+                    </div>
+                </div>
 
-        </dl>
-    </div>
+                <div class="col-lg-7 col-md-7 col-xl-7 col-sm-7 col-12" id="col1">
+                    <a id="backto" href="@Url.Action("Products", "Home")">חזרה לכל הדגמים<ion-icon name="arrow-round-back"></ion-icon></a>
 
-</div>
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @{
+                                var first = true;
+                            }
+                            @foreach (var photo in ViewBag.product.Photos)
+                            {
+                                <div class="carousel-item @(first?Html.Raw("active"):Html.Raw(""))">
+                                    <img class="d-block w-100" src="~/Content/ProductsGallery/@ViewBag.product.Id/@photo.ImageUrl" alt="@Model.Product.Name" style="height:400px;">
+                                </div>
+                                first = false;
+                            }
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">הקודם</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">הבא</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+            <div class="row" id="row2">
+                <span class="col-lg-3 col-md-3 col-xl-3 col-sm-3" id="row1"></span>
+                <div class="col-lg-9 col-md-9 col-xl-9 col-sm-9 col-12" id="rowundergal">
+                    <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" id="undergal">
+                        <div class="col-lg-11 col-md-11 col-xl-11 col-sm-11 col-10" id="colp">
+                            <p id="title">תרגישו נוח לקנות פה</p>
+                            <p id="pbody">באתר זה יש מדיניות ביטול הזמנה עד שבוע מיום ההזמנה והחזר כספי מלא!</p>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-xl-1 col-sm-1 col-2" id="iconp">
+                            <img src="~/Content/Images/100.png" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" id="undergal">
+                        <div class="col-lg-11 col-md-11 col-xl-11 col-sm-11 col-10" id="colp">
+                            <p id="title">שיטת תשלום מאובטחת של פייפאל</p>
+                            <p id="pbody">אתר זה לא שומר פרטי כרטיס אשראי וכל תהליך התשלום מבוצע באתר PayPal</p>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-xl-1 col-sm-1 col-2" id="iconp">
+                            <img src="~/Content/Images/פייפאל.png" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" id="undergal">
+                        <div class="col-lg-11 col-md-11 col-xl-11 col-sm-11 col-10" id="colp">
+                            <p id="title">משלוח עד 20 ימי עסקים</p>
+                            <p id="pbody">משלוח אמין עד בית הלקוח מחדרה עד גדרה, לא כולל מעבר לקו הירוק ומושבים</p>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-xl-1 col-sm-1 col-2" id="iconp">
+                            <img src="~/Content/Images/משאית משלוח.png" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    <br />
+    <br />
+    <br />
+
+
 
     <div class="col-sm-12 clearfix" />

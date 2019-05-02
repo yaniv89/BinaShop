@@ -1,27 +1,43 @@
 ﻿@{
     ViewBag.Title = "מנהל";
 }
-<style>
-    html {
-        text-align: center;
-    }
-</style>
+<head>
+    <link rel=stylesheet type="text/css" href="~/Content/AdminIndex.css">
+</head>
+    <style>
+        html {
+            text-align: center;
+        }
+    </style>
 
 <h2>דף ניהול</h2>
 <div class="container">
-<div class="col-sm-12" style="text-align:-webkit-center;margin-left:auto;margin-right:auto;">
-    <h4>ניהול מוצרים</h4>
-    <div class="list-group">
-        <a class="btn btn-full" href="/ProductCategoryManager/Index" style="margin-bottom:20px;width:300px;">קטגוריות מוצרים</a>
-        <a class="btn btn-full" href="/ProductManager/Index" style="width:300px;">ניהול מוצרים</a>
-
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="text-align:-webkit-center;">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <a class="btn btn-full" href="@Url.Action("Index","ProductCategoryManager")" style="margin-bottom:20px;width:250px;font-size:15pt !important;border:none !important;background-color: #AFD1D1 !important;box-shadow:none  !important;"><i class="fas fa-table"></i>     קטגוריות מוצרים</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <a class="btn btn-full" href="@Url.Action("Index","ProductManager")" style="margin-bottom:20px;width:250px;font-size:15pt !important;background-color: #D9E7E7 !important;box-shadow:none  !important;border:none !important;"><i class="fas fa-store"></i>     ניהול מוצרים</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <a class="btn btn-full" href="@Url.Action("Index","OrderManager")" style="margin-bottom:20px;width:250px;font-size:15pt !important;background-color: #F6E8DF !important;box-shadow:none  !important;border:none !important;"><i class="fas fa-clipboard-list"></i>     הזמנות</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <a class="btn btn-full" href="@Url.Action("Index","ShopBanner")" style="margin-bottom:20px;width:250px;font-size:15pt !important;background-color: #CC9999 !important;box-shadow:none  !important;border:none !important;"><i class="fas fa-images"></i>     באנרים ותמונות</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <a class="btn btn-full" href="@Url.Action("Index","GalleryPic")" style="margin-bottom:20px;width:250px;font-size:15pt !important;background-color: #e9adad !important;box-shadow:none  !important;border:none !important;"><i class="fas fa-desktop"></i>     גלריה-חנות</a>
+                    </div>
+                </div>
     </div>
-</div>
-
-<div class="col-sm-12" style="text-align:-webkit-center;margin-left:auto;margin-right:auto;">
-    <h4>ניהול הזמנות</h4>
-    <div class="list-group">
-        <a class="btn btn-full" href="/OrderManager/Index" style="width:300px;">הזמנות</a>
-    </div>
-</div>
+    
 </div>

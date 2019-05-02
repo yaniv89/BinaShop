@@ -10,6 +10,7 @@ namespace BinaShop.DataAccess.SQL.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+       
         }
 
         protected override void Seed(BinaShop.DataAccess.SQL.DataContext context)

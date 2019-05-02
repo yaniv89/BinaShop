@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace BinaShop.WebUI.Controllers
 {
+    [RequireHttps]
     [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {

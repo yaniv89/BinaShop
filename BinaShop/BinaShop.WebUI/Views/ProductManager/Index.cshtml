@@ -3,18 +3,39 @@
 @{
     ViewBag.Title = "עמוד ניהול";
 }
+@using PagedList.Mvc;
+@using PagedList;
 <head>
     <link rel=stylesheet type="text/css" href="~/Content/ProductManagerIndex.css">
+    <style>
+        ul.pagination {
+            display: -webkit-inline-box;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        button.btn-full {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        table.center.table-bordered {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        td{
+            padding:10px;
+        }
+    </style>
 </head>
 <div class="btn-link" style="text-align:right;">
-    <a href="/Admin/Index">חזרה לעמוד ניהול</a>
+    <a href="@Url.Action("Index", "Admin")">חזרה לעמוד ניהול</a>
 </div>
-<div class="container" style="text-align:center;">
+<div class="container" style="text-align:center;overflow-x:auto;">
     <h2>עמוד ניהול מוצרים</h2>
 
     <a class="btn btn-full" href="/ProductManager/Create" style="margin-bottom:25px;">הוספת מוצר</a>
 
-    <table class="table table-responsive table-bordered" style="text-align:center;border:none;">
+    <table class="center table-bordered" style="text-align:center;">
         <thead class="thead">
 
             <tr>
@@ -41,31 +62,33 @@
 
         </thead>
 
-        @foreach (var item in Model)
+        @foreach (var product in ViewBag.OnePageOfProducts)
         {
             <tr>
                 <td scope="col">
-                    <img class="img-thumbnail" style="height:50px;" src="~/Content/ProductImages/@item.Image" />
+                    <img class="img-thumbnail" style="height:50px;" src="~/Content/ProductImages/@product.Image" />
                 </td>
                 <td scope="col">
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @product.Name
                 </td>
                 <td scope="col">
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @Html.Raw(product.Description.Replace(Environment.NewLine, "<br/>"))
                 </td>
                 <td scope="col">
-                    @Html.DisplayFor(modelItem => item.Price)
+                    @product.Price₪
                 </td>
                 <td scope="col">
-                    @Html.DisplayFor(modelItem => item.Category)
+                    @product.Category
                 </td>
 
                 <td scope="col">
-                    @Html.ActionLink("ערוך מוצר", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("הסר מוצר", "Delete", new { id = item.Id })
+                    <a href="@Url.Action("Edit", "ProductManager", new { id = product.Id })" class="edit"><ion-icon name="clipboard"></ion-icon></a>
+                    <a href="@Url.Action("Delete", "ProductManager", new { id = product.Id })" class="delete"><ion-icon name="trash"></ion-icon></a>
                 </td>
             </tr>
         }
 
     </table>
+    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
 </div>
+

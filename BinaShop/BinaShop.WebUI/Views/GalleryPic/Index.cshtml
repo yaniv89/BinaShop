@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BinaShop.Core.Models.GalleryPic>
+<link rel=stylesheet type="text/css" href="~/Content/indexgallery.css">
+<h2>גלריית חנות</h2>
+<table class="table">
+    
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Photos)
+                </div>
+            </td>
+
+            <td>
+                <div class="col-sm-9">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @{
+                                var first = true;
+                            }
+                            @foreach (var photo in item.Photos)
+                            {
+                                <div class="carousel-item @(first?Html.Raw("active"):Html.Raw(""))">
+                                    <img class="d-block w-100" src="~/Content/GalleryPics/@item.Id/@photo.ImageUrl" alt="@item.Id">
+                                </div>
+                                first = false;
+                            }
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">הקודם</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">הבא</span>
+                        </a>
+                    </div>
+                </div>
+            </td>
+            
+
+            <td>
+                @Html.ActionLink("ערוך", "Edit", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

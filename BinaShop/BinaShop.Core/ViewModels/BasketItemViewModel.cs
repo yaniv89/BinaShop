@@ -14,6 +14,6 @@ namespace BinaShop.Core.ViewModels
         public string ProductName { get; set; }
         public decimal Price { get; set; }
         public string Image { get; set; }
-        public List<BasketItem> items { get; set; }
+        public ICollection<BasketItem> Items { get; set; }
     }
 }

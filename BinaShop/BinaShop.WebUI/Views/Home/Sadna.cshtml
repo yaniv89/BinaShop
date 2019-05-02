@@ -1,0 +1,180 @@
+﻿@model BinaShop.Core.ViewModels.PriceOfferVM
+
+@{
+    ViewBag.Title = "סדנאות";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.1/jquery.timepicker.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Sadna.css" type="text/css" />
+</head>
+<style>
+    
+</style>
+
+
+
+
+
+@if (TempData["SM"] != null)
+{
+    <div class="text-center alert alert-success" style="margin-top:20px;">
+        @TempData["SM"]
+    </div>
+}
+    
+        
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                <div class="container" style="text-align:-webkit-right;padding-top:30px;">
+                    @Html.ValidationMessageFor(m => m.FromName)
+                    @Html.ValidationMessageFor(m => m.FromEmail)
+                    @Html.ValidationMessageFor(m => m.PhoneNum)
+                    @Html.ValidationMessageFor(m => m.Date)
+                    @Html.ValidationMessageFor(m => m.Message)
+                    <h6 style="color:#707070;">הזמינו את הסדנא שלכם</h6>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="col1">
+                        @Html.TextBoxFor(m => m.FromName, new { @class = "form-control", @placeholder = "הקלד שם..." })
+
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="col1">
+                        @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", @placeholder = "הקלד דואר אלקטרוני..." })
+
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="col1">
+                        @Html.TextBoxFor(m => m.PhoneNum, new { @class = "form-control", @placeholder = "הקלד טלפון..." })
+
+                    </div>
+                    <div class="form-group" style="margin-bottom:0px !important;">
+                        @Html.LabelFor(model => model.Sadnas, htmlAttributes: new { @class = "control-label col-sm-12" })
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="font-size:12px;display: inline-block;">
+                            <div class="row">
+                                <label class="lbl">
+                                    סדנאת אם ובת
+                                    @Html.RadioButtonFor(model => model.Sadnas, "סדנא 1")
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="lbl">
+                                    סדנאת רווקות
+                                    @Html.RadioButtonFor(model => model.Sadnas, "סדנא 2")
+                                    <span class="checkmark"></span><br />
+                                </label>
+                            </div>
+                            @*<div class="row">
+                                <label class="lbl">
+                                    סדנא 3
+                                    @Html.RadioButtonFor(model => model.Sadnas, "סדנא 3")
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="lbl">
+                                    סדנא 4
+                                    @Html.RadioButtonFor(model => model.Sadnas, "סדנא 4")
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>*@
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0px !important;">
+                        @Html.LabelFor(model => model.NumOfPpl, htmlAttributes: new { @class = "control-label col-sm-12" })
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="font-size:12px;">
+                            @Html.DropDownListFor(model => model.NumOfPpl, new SelectList(ViewBag.NewList), new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="height:45px !important;">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control2", id = "datepicker", @placeholder = "    בחר תאריך..." } })
+
+                    </div>
+
+
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        @Html.TextAreaFor(m => m.Message, new { @class = "form-control1", @placeholder = "    הקלד הודעה..." })
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-6 col-sm-6">
+                            <input type="submit" class="btn btn-full" value="שלח הודעה" style="background-color:#CC9999;border-radius:150px;color:#F1E6E6;margin-top:15px;margin-bottom:20px;font-size:12px;float:left;" />
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12" style="padding-top:30px;">
+                <div class="row">
+                    
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="card" style="padding-bottom:25px;border:none;font-size:12px;color:#707070;">
+                            <img class="img-fluid" id="sadnaImg"  src="~/Content/סדנת אם ובת.jpg" />
+                            @*<p>סדנא לורם איפסום דולור</p>*@
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="card" style="padding-bottom:25px;border:none;font-size:12px;color:#707070;">
+                            <img class="img-fluid" id="sadnaImg" src="~/Content/סדנת רווקות.jpg"/>
+                            @*<p>סדנא לורם איפסום דולור</p>*@
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                    
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="card" style="padding-bottom:25px;border:none;font-size:12px;color:#707070;">
+                            <img class="img-fluid" style="height:300px;width:300px;" src="~/Content/backlit-blur-close-up-279467.jpg">
+                            <p>סדנא לורם איפסום דולור</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="card" style="padding-bottom:25px;border:none;">
+                            <img class="img-fluid" style="height:300px;width:300px;" src="~/Content/Bina_Logo.png" />
+                            <p style="font-size:12px;color:#707070;">סדנא לורם איפסום דולור</p>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://code.jquery.com/jquery-2.2.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.1/jquery.timepicker.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                showOptions: { speed: 'fast' },
+                minDate: 0,
+                changeMonth: false,
+                changeYear: false,
+                dateFormat: 'dd/mm/yy',
+                gotoCurrent: true,
+                closeText: 'סגור',
+                prevText: '&#x3C;הקודם',
+                nextText: 'הבא&#x3E;',
+                currentText: 'היום',
+                monthNames: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני',
+                    'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
+                monthNamesShort: ['ינו', 'פבר', 'מרץ', 'אפר', 'מאי', 'יוני',
+                    'יולי', 'אוג', 'ספט', 'אוק', 'נוב', 'דצמ'],
+                dayNames: ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'],
+                dayNamesShort: ['א\'', 'ב\'', 'ג\'', 'ד\'', 'ה\'', 'ו\'', 'שבת'],
+                dayNamesMin: ['א\'', 'ב\'', 'ג\'', 'ד\'', 'ה\'', 'ו\'', 'שבת'],
+                weekHeader: 'Wk',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 0,
+                isRTL: true,
+                showMonthAfterYear: false
+            });
+        });
+    </script>
+}

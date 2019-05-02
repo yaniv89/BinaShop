@@ -1,12 +1,19 @@
 ﻿@model BinaShop.Core.Models.Order
 
-
+<head>
+    <style>
+        .form-control{
+            display:inline-block;
+            border:2px thin #a3f5fa !important;
+        }
+    </style>
+</head>
 <div class="btn-link" style="text-align:right;">
    
         @Html.ActionLink("חזור להזמנות", "Index")
     
 </div>
-<div class="container" style="text-align:right;">
+<div class="container" style="text-align:-webkit-center;">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -14,78 +21,91 @@
             <h2>עדכון הזמנה</h2>
 
             @Html.HiddenFor(model => model.Id)
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <strong>
-                        @Html.LabelFor(model => model.OrderStatus, htmlAttributes: new { @class = "control-label col-sm-2" })
-                    </strong>
-                        <div class="col-sm-10">
-                        @Html.DropDownListFor(model => model.OrderStatus, new SelectList(ViewBag.StatusList), new { @class = "form-control" })
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <strong>
+                            @Html.LabelFor(model => model.OrderStatus, htmlAttributes: new { @class = "control-label col-sm-12" })
+                        </strong>
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(model => model.OrderStatus, new SelectList(ViewBag.StatusList), new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <strong>
-                        @Html.LabelFor(model => model.CreatedAt, htmlAttributes: new { @class = "control-label col-sm-2" })
-                      </strong>
-                        <div class="col-sm-10">
-                            @Html.DisplayFor(model => model.CreatedAt, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-                </div>
-
-                <div class="form-group">
-                    <strong>
-                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-sm-2" })
+                    <div class="form-group">
+                        <strong>
+                            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-sm-12" })
                         </strong>
-                        <div class="col-sm-10">
-                            @Html.DisplayFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="col-sm-12">
+                            @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                         </div>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <strong>
-                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-sm-2" })
-                       </strong>
-                        <div class="col-sm-10">
-                            @Html.DisplayFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="form-group">
+                        <strong>
+                            @Html.LabelFor(model => model.CreatedAt, htmlAttributes: new { @class = "control-label col-sm-12" })
+                        </strong>
+                        <div class="col-sm-12">
+                            @Html.EditorFor(model => model.CreatedAt, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                         </div>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <strong>
-                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-sm-2" })
+                    <div class="form-group">
+                        <strong>
+                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-sm-12" })
                         </strong>
-                        <div class="col-sm-10">
-                            @Html.DisplayFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="col-sm-12">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                         </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <strong>
-                        @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-sm-2" })
-                        </strong>
-                        <div class="col-sm-10">
-                            @Html.DisplayFor(model => model.Street, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <strong>
-                        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-sm-2" })
+                    <div class="form-group">
+                        <strong>
+                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-sm-12" })
                         </strong>
-                        <div class="col-sm-10">
-                            @Html.DisplayFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="col-sm-12">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                         </div>
-</div>
+                    </div>
 
-                <div class="form-group">
-                    <strong>
-                        @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-sm-2" })
+                    
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <strong>
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-sm-12" })
                         </strong>
-                        <div class="col-sm-10">
-                            @Html.DisplayFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="col-sm-12">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <strong>
+                            @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-sm-12" })
+                        </strong>
+                        <div class="col-sm-12">
+                            @Html.EditorFor(model => model.Street, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <strong>
+                            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-sm-12" })
+                        </strong>
+                        <div class="col-sm-12">
+                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <strong>
+                            @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        </strong>
+                        <div class="col-sm-12">
+                            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group">

@@ -10,43 +10,104 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using PayPal;
+using PagedList;
+using System.IO;
+using BinaShop.DataAccess.SQL;
 
 namespace BinaShop.WebUI.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         IRepository<Product> context;
         IRepository<ProductCategory> productCategories;
-
-        public HomeController(IRepository<Product> productContext, IRepository<ProductCategory> productCategotyContext)
+        IRepository<PriceOffer> priceOfferContext;
+        public IRepository<ShopBanner> Bannercontext;
+        public IRepository<GalleryPic> GalleryPiccontext;
+        public HomeController(IRepository<GalleryPic> GalleryPicContext, IRepository<ShopBanner> Bannercontextt,IRepository<PriceOffer> priceOfferContextr, IRepository<Product> productContext, IRepository<ProductCategory> productCategotyContext)
         {
+            Bannercontext = Bannercontextt;
             context = productContext;
             productCategories = productCategotyContext;
+            priceOfferContext = priceOfferContextr;
+            GalleryPiccontext = GalleryPicContext;
         }
         public ActionResult Index()
         {
-            return View();
+            List<ShopBanner> shopBanners = Bannercontext.Collection().ToList();
+            ShopBannerViewModel model = new ShopBannerViewModel();
+            model.ShopBanners = shopBanners;
+            return View(model);
         }
 
-        public ActionResult About()
+        public ActionResult Sadna()
         {
-            ViewBag.Message = "Your application description page.";
+            PriceOfferVM model = new PriceOfferVM();
+            model.PriceOffer = new PriceOffer();
+            List<int> NewList = new List<int>() {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
+            
+            ViewBag.NewList = NewList.ToList();
+            
+            return View(model);
+        }
 
-            return View();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Sadna(PriceOffer model)
+        {
+
+            
+               
+
+            if (ModelState.IsValid)
+            {
+                
+                var body = "<p dir=rtl>" +
+                    "שם: {0}<br/>" +
+                    "דואר אלקטרוני: {1}<br/>" +
+                    "טלפון: {2}<br/>" +
+                    "תאריך: {3}<br/>" +
+                    "מספר משתתפים: {4}<br/>" +
+                    "סדנא: {5}<br/>" +
+                     "הודעה: {6}</p>";
+                
+                var message = new MailMessage();
+                message.To.Add(new MailAddress("postmaster@halohdim.com"));  // replace with valid value 
+                message.From = new MailAddress("postmaster@halohdim.com", "הלוכדים של בינה");  // replace with valid value
+                message.Subject = "סדנאות ";
+                message.Body = string.Format(body, model.FromName, model.FromEmail,model.PhoneNum,model.Date,model.NumOfPpl,model.Sadnas, model.Message);
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "postmaster@halohdim.com",  // replace with valid value
+                        Password = "******"  // replace with valid value
+                    };
+                    smtp.Credentials = credential;
+                    smtp.Host = "mail.halohdim.com";
+                    smtp.Port = 8889;
+                    smtp.EnableSsl = false;
+                    await smtp.SendMailAsync(message);
+                    TempData["SM"] = "הודעתך נשלחה בהצלחה, אשיב בהקדם.";
+                    return RedirectToAction("Sadna");
+                }
+            }
+            return View(model);
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
-
-        public ActionResult Products(string Category = null)
+        
+        public ActionResult Products(int? page,string Category = null)
         {
             List<Product> products;
             List<ProductCategory> categories = productCategories.Collection().ToList();
-
+            List<ShopBanner> shopBanners = Bannercontext.Collection().ToList();
+            List<GalleryPic> galleryPics = GalleryPiccontext.Collection().ToList();
             if (Category == null)
             {
                 products = context.Collection().ToList();
@@ -59,7 +120,11 @@ namespace BinaShop.WebUI.Controllers
             ProductListViewModel model = new ProductListViewModel();
             model.Products = products;
             model.ProductCategories = categories;
-
+            model.ShopBanners = shopBanners;
+            model.GalleryPics = galleryPics;
+            var pageNumber = page ?? 1;
+            var onePageOfProducts = products.ToPagedList(pageNumber, 12);
+            ViewBag.OnePageOfProducts = onePageOfProducts;
 
             return View(model);
         }
@@ -73,7 +138,24 @@ namespace BinaShop.WebUI.Controllers
             }
             else
             {
-                return View(product);
+                List<ShopBanner> shopBanners = Bannercontext.Collection().ToList();
+                IEnumerable<Photo> photos = product.Photos;
+                ProductViewModel viewModel = new ProductViewModel() {
+                    Product = product,
+                    Category = product.Category,
+                    Description = product.Description,
+                    Price = product.Price,
+                    Image = product.Image,
+                    Name = product.Name,
+                    Photos = photos.Select(x => new Photo() { ImageUrl = x.ImageUrl, Id = x.Id }).ToList(),
+                    ShopBanners = shopBanners
+            };
+               
+
+                ViewBag.product = product;
+                return View(viewModel);
+                
+                
             }
         }
 
@@ -85,9 +167,9 @@ namespace BinaShop.WebUI.Controllers
             {
                 var body = "<p>דואר אלקטרוני מ: {0} ({1})</p><p>הודעה:</p><p>{2}</p>";
                 var message = new MailMessage();
-                message.To.Add(new MailAddress("yanivabu8@gmail.com"));  // replace with valid value 
-                message.From = new MailAddress("yanivabu8@gmail.com");  // replace with valid value
-                message.Subject = "נושא: ";
+                message.To.Add(new MailAddress("postmaster@halohdim.com"));  // replace with valid value 
+                message.From = new MailAddress("postmaster@halohdim.com");  // replace with valid value
+                message.Subject = "יצירת קשר ";
                 message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
                 message.IsBodyHtml = true;
 
@@ -95,15 +177,16 @@ namespace BinaShop.WebUI.Controllers
                 {
                     var credential = new NetworkCredential
                     {
-                        UserName = "yanivabu8@gmail.com",  // replace with valid value
-                        Password = "Balalesh1939"  // replace with valid value
+                        UserName = "postmaster@halohdim.com",  // replace with valid value
+                        Password = "*****"  // replace with valid value
                     };
                     smtp.Credentials = credential;
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
+                    smtp.Host = "mail.halohdim.com";
+                    smtp.Port = 8889;
+                    smtp.EnableSsl = false;
                     await smtp.SendMailAsync(message);
-                    return RedirectToAction("Sent");
+                    TempData["SM"] = "הודעתך נשלחה בהצלחה, אשיב בהקדם.";
+                    return RedirectToAction("Contact");
                 }
             }
             return View(model);

@@ -1,13 +1,28 @@
 ﻿@model IEnumerable<BinaShop.Core.Models.ProductCategory>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "קטגוריות מוצרים";
 }
 <head>
     <link rel=stylesheet type="text/css" href="~/Content/ProductCategoryIndex.css">
+    <style>
+      
+
+        .ui-state-highlight {
+            border: 1px dashed #ccc;
+        }
+
+        table.sorting.Categories td {
+            padding: 20px !important;
+        }
+        table.center.table-bordered {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <div class="btn-link" style="text-align:right;">
-    <a href="/Admin/Index">חזרה לעמוד ניהול</a>
+    <a href="@Url.Action("Index", "Admin")">חזרה לעמוד ניהול</a>
 </div>
 
 <div class="container" style="text-align:center;">
@@ -15,26 +30,36 @@
     <div class="btn-add">
         <a class="btn btn-full" href="/ProductCategoryManager/Create" style="margin-right:20px;">צור קטגוריה</a>
     </div>
-    <table class="table table-responsive table-bordered" style="text-align:center;border:none;">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th></th>
-        </tr>
+    @if (!Model.Any())
+    {
+        <h1 class="text-center" style="color:#00d090;font-size:20px;">אין קטגוריות קיימות.</h1>
+    }
+    else
+    {
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.ActionLink("ערוך קטגוריה", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("מחיקת קטגוריה", "Delete", new { id = item.Id })
-                </td>
+        <table class="center table-bordered" id="pages" >
+            <tr class="home">
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr id="id_@item.Id" class="@item.Category">
+                    <td>
+                        @Html.EditorFor(modelItem => item.Category, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "ProductCategoryManager", new { id = item.Id })" class="edit"><ion-icon name="clipboard"></ion-icon></a>
+                        <a href="@Url.Action("Delete", "ProductCategoryManager", new { id = item.Id })" class="delete"><ion-icon name="trash"></ion-icon></a>
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    }
 </div>
+

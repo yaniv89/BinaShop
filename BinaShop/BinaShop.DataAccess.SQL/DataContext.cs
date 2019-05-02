@@ -23,5 +23,9 @@ namespace BinaShop.DataAccess.SQL
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShopBanner> ShopBanners { get; set; }
+        public DbSet<Photo> Photos { get; set; }
+        public DbSet<PriceOffer> PriceOffers { get; set; }
+        public DbSet<GalleryPic> GalleryPics { get; set; }
     }
 }

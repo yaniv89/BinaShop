@@ -1,72 +1,190 @@
-﻿@model BinaShop.Core.ViewModels.ProductListViewModel
+﻿
+@model BinaShop.Core.ViewModels.ProductListViewModel
 @{
     ViewBag.Title = "מוצרים";
 
 }
-
+@using PagedList.Mvc;
+@using PagedList;
 <head>
 
 
     <link rel=stylesheet type="text/css" href="~/Content/ProductsHome.css">
-    
 
-       
+    <style>
+        ul.pagination {
+            margin-right: auto;
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body>
-    <div class="container">
-        <h2>מוצרים</h2>
-        <div class="row">
-            <div class="col-sm-2" style="margin-bottom:20px;text-align:-webkit-center;">
-
-                <div class="container">
-                    <h4>סנן לפי קטגוריה</h4>
-                    <button class="btn-block" style="width:150px;">
-
-                        @Html.ActionLink("הכל", "Products", null, new { @class = Request["Category"] == null ? "list-group-item-active" : "list-group-item" })
-
-                    </button>
 
 
-                    @foreach (var cat in Model.ProductCategories)
+    
+    <div class="container-fluid" id="c1">
+        <div id="outside">
+            <div id="inside">
+            </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="colgal">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @{
+                        var first = true;
+                    }
+                    @foreach (var item in Model.GalleryPics.Where(x => x.Id == "6fe206d2-8a37-4826-be5b-2dfa24ba2bf7"))
                     {
-                        <button class="btn-block" style="width:150px;">
-                            @Html.ActionLink(cat.Category, "Products", new { Category = cat.Category }, new { @class = Request["Category"] == cat.Category ? "list-group-item-active" : "list-group-item" })
-                        </button>
+                        foreach (var photo in item.Photos)
+                        {
+                            <div class="carousel-item @(first ? Html.Raw("active") : Html.Raw(""))">
+                                <img class="d-block w-100" src="~/Content/GalleryPics/@item.Id/@photo.ImageUrl" alt="@item.Id">
+                            </div>
+                            first = false;
+                        }
                     }
                 </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                   data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">הקודם</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                   data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">הבא</span>
+                </a>
             </div>
-            <div class="col-sm-10" style="text-align:center;padding-right:45px;">
+        </div>
+
+        <div class="container-fluid" id="banners">
+            @foreach (var Banner in Model.ShopBanners.Where(x => x.Id == "cf7eaba3-f78c-4208-b26e-a0bb96672209"))
+            {
+                <div class="sidenav">
+                    <a href="@Banner.Link"><img class="img-fluid" src="~/Content/Banners/@Banner.Image" /></a>
+
+                </div>
+            }
+            @foreach (var Banner in Model.ShopBanners.Where(x => x.Id == "7379d3f0-8222-4725-852b-59b46f83aa67"))
+            {
+                <div class="sidenav1">
+                    <a href="@Banner.Link"><img class="img-fluid" src="~/Content/Banners/@Banner.Image" /></a>
+
+                </div>
+            }
+
+            <div class="container-fluid" id="coprod">
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="colcatprod">
+                    <div class="row">
+
+                        @if (TempData["SM"] != null)
+                        {
+                            <div class="text-center alert alert-success" style="width:300px;text-align:center;">
+                                @TempData["SM"]
+                            </div>
+                        }
 
 
+                        <div class="container" id="colcat">
 
+                            <div class="row">
 
-                @foreach (var item in Model.Products)
-                {
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="cat">
+                                    <h4>בחרו קטגוריה</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="cat">
+                                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-6" id="catpad">
+                                        <button class="btn btn-full" id="catbutton">
 
-                    <div class="col-sm-5" style="display:inline-block;margin-bottom:20px;">
+                                            @Html.ActionLink("הכל", "Products", null, new { @class = Request["Category"] == null })
 
-                        <div class="col-sm-12">
-                            <img class="img-fluid" src="~/Content/ProductImages/@item.Image" />
+                                        </button>
+                                    </div>
+                                    @foreach (var item in Model.ProductCategories.Where(x => x.Category == "SALE"))
+                                    {
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-6" id="catpad">
+                                            <button class="btn btn-full" id="catbutton1">
+                                                @Html.ActionLink(item.Category, "Products", new { Category = item.Category }, new { @class = Request["Category"] == item.Category })
+                                            </button>
+                                        </div>
+                                    }
+                                    @foreach (var cat in Model.ProductCategories.Where(x => x.Category != "SALE"))
+                                    {
+
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-6" id="catpad">
+                                            <button class="btn btn-full" id="catbutton">
+                                                @Html.ActionLink(cat.Category, "Products", new { Category = cat.Category }, new { @class = Request["Category"] == cat.Category })
+                                            </button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="col-sm-12">
-                            <strong>@Html.ActionLink(item.Name, "Details", new { id = item.Id })</strong>
-                        </div>
-                        <div class="col-sm-12">
-                            <p>@item.Description</p>
-                        </div>
-                        <div class="col-sm-12">
-                            <h4>₪@item.Price</h4>
-                        </div>
-                        <div class="col-sm-12">
-                            <a href="@Url.Action("AddToBasket","Basket",new {Id=item.Id })" class="btn btn-full" style="margin-left:0px;padding:10px 5px;">הוסף לסל<ion-icon name="cart"></ion-icon></a>
+                    </div>
+                    <div class="container-fluid" id="cfluid">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="colb">
+                            <div class="row">
+
+                                @foreach (var product in ViewBag.OnePageOfProducts)
+                                {
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12" id="col3">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="col5">
+                                                <a href="@Url.Action( "Details","Home", new { id = product.Id })">
+                                                    <img class="card-img-top" src="~/Content/ProductImages/@product.Image" />
+                                                    </a>
+                                            </div>
+                                        </div>
+
+                                        
+                                            <div class="row">
+                                                    <h6 class="title text-dots">
+                                                        <a id="pname" href="@Url.Action( "Details","Home", new { id = product.Id })">@product.Name</a>
+                                                    </h6>
+                                            </div>
+                                        
+
+                                        
+                                            <div class="row">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" id="col1">
+                                                    <span class="price-new" id="pricenew">
+                                                        ₪@product.Price
+                                                    </span>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" id="col2">
+                                                    <span class="Add-to-basket">
+                                                        <a href="@Url.Action("AddToBasket", "Basket", new { Id = product.Id })" class="btn btn-full" id="addtobasket"><ion-icon id="carticon" name="cart"></ion-icon>הוסף לסל</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
+
+                                }
+
+                            </div>
                         </div>
                     </div>
 
-                }
+                </div>
+                @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Products", new { page }))
             </div>
+
         </div>
+
+
     </div>
-    <div class="clearfix col-sm-12"></div>
+
+
+    <div class="clearfix col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"></div>
 </body>
+
+
 
 

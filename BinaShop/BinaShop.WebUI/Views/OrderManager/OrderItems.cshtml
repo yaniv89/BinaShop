@@ -1,50 +1,63 @@
 ﻿@model IEnumerable<BinaShop.Core.Models.OrderItem>
-
+<head>
+    <style>
+        .table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        tbody {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
 <div class="container" style="text-align:center;">
-    <table class="table table-responsive" style="text-align:right;">
-        <tr>
-
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>סך הכל</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-
+    <div class="col-sm-12">
+        <table class="table table-responsive" style="text-align:right;max-width:400px;">
             <tr>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>סך הכל:</th>
+            </tr>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
+            @foreach (var item in Model)
+            {
+
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        ₪@Html.DisplayFor(modelItem => item.Price)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @String.Format(ViewBag.il, "{0:c}", item.Price * item.Quantity)
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <td colspan="3">
+                    <strong>סך הזמנה:</strong>
                 </td>
                 <td>
-                    @String.Format("{0:c}", item.Price * item.Quantity)
+                    @String.Format(ViewBag.il, "{0:c}", (from p in Model select p.Quantity * p.Price).Sum())
                 </td>
             </tr>
-        }
 
-        <tr>
-            <td colspan="3">
-                <strong>סך הזמנה</strong>
-            </td>
-            <td>
-                @String.Format("{0:c}", (from p in Model select p.Quantity * p.Price).Sum())
-            </td>
-        </tr>
-
-    </table>
+        </table>
+    </div>
 </div>

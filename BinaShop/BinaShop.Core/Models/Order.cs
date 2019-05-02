@@ -9,10 +9,7 @@ namespace BinaShop.Core.Models
 {
     public class Order:BaseEntity
     {
-        public Order()
-        {
-            this.OrderItems = new List<OrderItem>();
-        }
+        
         [DisplayName("שם פרטי:")]
         public string FirstName { get; set; }
         [DisplayName("שם משפחה:")]
@@ -28,6 +25,16 @@ namespace BinaShop.Core.Models
         [DisplayName("סטטוס:")]
         public string OrderStatus { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
-
+        [DisplayName("סכום:")]
+        public int Total { get; set; }
+        public int Tax { get; set; }
+        public int Subtotal { get; set; }
+        public int Shipping { get; set; }
+        [DisplayName("PayPal:")]
+        public string PayPalReference { get; set; }
+        public Order()
+        {
+            this.OrderItems = new List<OrderItem>();
+        }
     }
 }

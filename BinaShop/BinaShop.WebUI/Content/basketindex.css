@@ -1,0 +1,191 @@
+﻿body {
+    font-family: 'Assistant','Arial',sans-serif;
+}
+#background {
+    margin-bottom: 0px;
+    background-image: url('/Content/Images/רקע.png');
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    z-index: -20;
+}
+.container {
+    max-width: 1440px;
+    padding: 0px;
+}
+#c1 {
+    text-align: -webkit-center;
+    height: 40% !important;
+    width: 60%;
+    background-color: #f2eee3;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+#c2{
+    background-color:#faf8f5;
+    width:82%;
+    height:60%;
+    margin-left:auto;
+    margin-right:auto;
+}
+#tblcheckout {
+    display: unset !important;
+    text-align: right;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    font-family: 'Assistant','Arial',sans-serif;
+}
+#tblcheckout img {
+    height: 76px !important;
+    width: 76px !important;
+}
+#td1{
+    padding-top:30px !important;
+    font-size:19pt;
+    font-weight:600;
+}
+#td2 {
+    padding-top: 35px !important;
+    font-size: 16pt;
+    font-weight: 100;
+}
+#td3 {
+    padding-top: 35px !important;
+    font-size: 16pt;
+    font-weight: 900;
+    color:#6a8a98;
+}
+#td4 {
+    padding-top: 35px !important;
+    padding-top: 35px !important;
+    font-size: 16pt;
+    font-weight: 100;
+}
+#td5 {
+    padding-top: 35px !important;
+}
+h2 {
+    font-family: 'Assistant','Arial',sans-serif;
+    font-size:32pt !important;
+    font-weight:900 !important;
+}
+#tblcheckout th {
+    font-family: 'Assistant','Arial',sans-serif;
+    color: #BAD5DB;
+}
+#sah {
+    text-align: left !important;
+    font-family:  'Assistant','Arial',sans-serif;
+    color: #388449;
+    font-size: 19pt !important;
+    font-weight: 900 !important;
+    padding-left: 20px !important;
+    padding-right: 0px !important;
+}
+#total {
+    font-family: 'Assistant','Arial',sans-serif;
+    color: #388449;
+    font-size: 19pt !important;
+    font-weight: 900 !important;
+    text-align: right !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+#punder {
+    font-family: 'Assistant','Arial',sans-serif;
+    font-size: 12pt;
+    font-weight: 100;
+    text-align: left !important;
+}
+#paypalunder {
+    text-align: left !important;
+    padding-left: 20%;
+}
+#wrapper{
+    padding-bottom:15px !important;
+}
+@media only screen and (max-width: 600px) {
+    #td1,#td2,#td3,#td4,#td5 {
+        text-align:center !important;
+        padding-top:5px !important;
+        padding-bottom:5px !important;
+    }
+    #tblcheckout th {
+        font-size:12pt !important;
+    }
+    #td1 {
+        display:block !important;
+        font-size: 19pt;
+        font-weight: 600;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    #td2 {
+        display: block !important;
+        font-size: 16pt;
+        font-weight: 100;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    #td3 {
+        display: block !important;
+        font-size: 16pt;
+        font-weight: 900;
+        color: #6a8a98;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    #td4 {
+        display: block !important;
+        font-size: 16pt;
+        font-weight: 100;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    #td5 {
+        padding-bottom:10px !important;
+        display: block !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    #tdimg {
+        display: block !important;
+        position:absolute;
+        padding:0 0 0 0 !important;
+        right:10%;
+        padding-top:15px !important;
+        padding-bottom:10px !important;
+    }
+    #tblcheckout img {
+        height:180px !important;
+        width:130px !important;
+    }
+    #tblcheckout th{
+        display:none;
+    }
+    #tblcheckout tr{
+        padding-bottom:10px !important;
+    }
+    #c2 {
+        width:85% !important;
+        text-align:left !important;
+         overflow-x:auto;
+    }
+    #sah{
+        padding-left:unset !important;
+        text-align:center !important;
+    }
+    #total {
+        text-align: center !important;
+    }
+    #background{
+        background-image:none !important;
+    }
+    #c1{
+        width:100% !important;
+    }
+}

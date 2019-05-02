@@ -1,0 +1,15 @@
+﻿body {
+    text-align:center;
+}
+
+#carouselExampleIndicators {
+    height: 223px !important;
+    width: 700px !important;
+}
+
+    @media only screen and (max-width: 600px) {
+       td #carouselExampleIndicators {
+            height: 114px !important;
+            width: 360px !important;
+        }
+    }

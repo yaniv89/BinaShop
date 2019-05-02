@@ -14,6 +14,7 @@ using BinaShop.Core.Contracts;
 
 namespace BinaShop.WebUI.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class AccountController : Controller
     {
@@ -86,7 +87,7 @@ namespace BinaShop.WebUI.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "נתונים לא נכונים");
                     return View(model);
             }
         }
@@ -158,12 +159,7 @@ namespace BinaShop.WebUI.Controllers
                     //refister the customer model
                     Customer customer = new Customer()
                     {
-                        City = model.City,
-                        Email = model.Email,
-                        FirstName = model.FirstName,
-                        LastName = model.LastName,
-                        Street = model.Street,
-                        ZipCode = model.ZipCode,
+                        Email=user.Email,
                         UserId = user.Id
                     };
                     customerRepository.Insert(customer);
@@ -392,7 +388,7 @@ namespace BinaShop.WebUI.Controllers
                         return RedirectToLocal(returnUrl);
                     }
                 }
-                AddErrors(result);
+                ModelState.AddModelError("", "דואר אלקטרוני כבר בשימוש");
             }
 
             ViewBag.ReturnUrl = returnUrl;

@@ -1,6 +1,7 @@
 ﻿using BinaShop.Core.Contracts;
 using BinaShop.Core.Models;
 using BinaShop.DataAccess.InMemory;
+using BinaShop.DataAccess.SQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace BinaShop.WebUI.Controllers
 {
+    [RequireHttps]
     [Authorize(Roles = "Admin")]
     public class ProductCategoryManagerController : Controller
     {
@@ -116,5 +118,7 @@ namespace BinaShop.WebUI.Controllers
                 return RedirectToAction("Index");
             }
         }
+        
+
+        }
     }
-}

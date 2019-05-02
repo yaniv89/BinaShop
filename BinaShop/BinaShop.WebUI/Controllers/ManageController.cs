@@ -10,6 +10,7 @@ using BinaShop.WebUI.Models;
 
 namespace BinaShop.WebUI.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class ManageController : Controller
     {
@@ -49,10 +50,10 @@ namespace BinaShop.WebUI.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                message == ManageMessageId.ChangePasswordSuccess ? "סיסמתך שונתה בהצלחה."
+                : message == ManageMessageId.SetPasswordSuccess ? "סיסמתך הוגדרה בהצלחה."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                : message == ManageMessageId.Error ? "התרחשה שגיאה."
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
@@ -275,8 +276,8 @@ namespace BinaShop.WebUI.Controllers
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                message == ManageMessageId.RemoveLoginSuccess ? "החיבור החיצוני הוסר"
+                : message == ManageMessageId.Error ? "התרחשה שגיאה"
                 : "";
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user == null)

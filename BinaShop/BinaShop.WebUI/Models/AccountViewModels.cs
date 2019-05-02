@@ -72,30 +72,14 @@ namespace BinaShop.WebUI.Models
 
         [Required]
         [StringLength(100, ErrorMessage = "הסיסמה חייבת לכלול לפחות 6 תווים", MinimumLength = 6)]
-        [DataType(DataType.Password)]
         [Display(Name = "סיסמה:")]
         public string Password { get; set; }
 
-        [DataType(DataType.Password)]
+        [Required]
         [Display(Name = "אשר סיסמה:")]
         [Compare("Password", ErrorMessage = "הסיסמה ואישור הסיסמה אינם תואמים!")]
         public string ConfirmPassword { get; set; }
-
-        [Required]
-        [DisplayName("שם פרטי:")]
-        public string FirstName { get; set; }
-        [Required]
-        [DisplayName("שם משפחה:")]
-        public string LastName { get; set; }
-        [Required]
-        [DisplayName("רחוב:")]
-        public string Street { get; set; }
-        [Required]
-        [DisplayName("עיר:")]
-        public string City { get; set; }
-        [Required]
-        [DisplayName("מיקוד:")]
-        public string ZipCode { get; set; }
+        
     }
 
     public class ResetPasswordViewModel

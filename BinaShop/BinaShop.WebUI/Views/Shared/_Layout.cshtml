@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link href="https://fonts.googleapis.com/css?family=Bellefair|Varela+Round" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="~/Content/StyleSheet1.css" type="text/css">
@@ -14,36 +14,74 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136153503-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'UA-136153503-1');
+    </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .nav-link {
+            display: initial !important;
+        }
 
+        #tblpaypal {
+            position: absolute;
+            top: -20px;
+        }
+    </style>
 </head>
 <body>
-    <nav class="main-nav navbar navbar-expand-lg" style="font-size:20px;background-color: rgba(0, 226, 241, 0.36);">
-        <a class="navbar-brand" href="/Home/Index"><img src="~/Content/Bina_Logo.png" style="height:55px;position:relative;" /></a>
-        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <div class="backgroun_loader" id="loadingEl">
+        <h1 class="ml8" id="loadingEl">
+            <span class="letters-container" id="loadingEl">
+                <span class="letters letters-left" id="loadingEl">טוען</span>
+                <span class="letters bang" id="loadingEl">.</span>
+                <span class="letters bang1" id="loadingEl">.</span>
+                <span class="letters bang2" id="loadingEl">.</span>
+
+            </span>
+            <span class="circle circle-white" id="loadingEl"></span>
+            <span class="circle circle-dark" id="loadingEl"></span>
+            <span class="circle circle-container" id="loadingEl"><span class="circle circle-dark-dashed" id="loadingEl"></span></span>
+        </h1>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <nav class="main-nav navbar navbar-expand-lg" style="height:36px;padding:0px;font-size:15px;background-color:#AFD3D3;padding-bottom:0px;padding-top:0px;">
+
+        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="padding-bottom:0px;padding-top:0px;">
+            <span class="navbar-toggler-icon" style="padding-bottom:0px;padding-top:0px;height:24px"></span>
 
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+        <div class="collapse navbar-collapse" id="navbarNav" style="z-index:20;text-align: -webkit-right !important;height:auto;background-color:#AFD3D3;padding-bottom:8px;padding-top:8px;">
+            <ul class="navbar-nav" style="padding-left:10px;display:flex!important;">
                 <li class="nav-item active">
-                    <a href="/Home/Products">לוכדי חלומות</a>
+                    <a class="nav-link" href="/Home/Index">דף הבית</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="#">סדנאת לוכדי חלומות</a>
+                    <a class="nav-link" href="/Home/Products">חנות</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="/Home/Contact">צור קשר</a>
+                    <a class="nav-link" href="/Home/Sadna">סדנאת לוכדי חלומות</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Home/Contact">צור קשר</a>
                 </li>
                 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                 {
-                    <li><a href="/Admin/Index">מנהל</a></li>
+                    <li><a href="/Admin/Index" style="display:grid;">מנהל</a></li>
                 }
 
             </ul>
 
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto" style="padding-left:10px;display:inline-flex!important;">
+
                 @Html.Partial("_LoginPartial")
                 @{
                     Html.RenderAction("BasketSummary", "Basket");
@@ -62,10 +100,89 @@
 
 
 
-    
+
     @RenderSection("scripts", required: false)
-    <br />
-    <br />
+    <br/>
+    <footer style="text-align:center;">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-6" id="footerpad">
+                    <p style="font-family: 'Assistant','Arial',sans-serif;font-weight:800;font-size:13pt;">תעקבו אחרינו, אחרי החלומות שלנו וכל הסיפור מאחוריהם</p>
+                    <a class="instagram" href="https://www.instagram.com/Bina_Vodovoz/"><img class="img" src="~/Content/9.png" /></a>
+                    <a class="facebook" href="https://www.facebook.com/halohdim/"><img class="img" src="~/Content/10.png" /></a>
+                </div>
+                <div class="col-sm-6">
+                    <table id="tblpaypal" border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a></td></tr></table>
+                </div>
+                </div>
+            </div>
+    </footer>
 </body>
 </html>
 
+<script>
+
+    anime.timeline({ loop: true })
+        .add({
+            targets: '.ml8 .circle-white',
+            scale: [0, 3],
+            opacity: [1, 0],
+            easing: "easeInOutExpo",
+            rotateZ: 360,
+            duration: 1100
+        }).add({
+            targets: '.ml8 .circle-container',
+            scale: [0, 1],
+            duration: 1100,
+            easing: "easeInOutExpo",
+            offset: '-=1000'
+        }).add({
+            targets: '.ml8 .circle-dark',
+            scale: [0, 1],
+            duration: 1100,
+            easing: "easeOutExpo",
+            offset: '-=600'
+        }).add({
+            targets: '.ml8 .letters-left',
+            scale: [0, 1],
+            duration: 1200,
+            offset: '-=550'
+        }).add({
+            targets: '.ml8 .bang',
+            scale: [0, 1],
+            rotateZ: [15, 15],
+            duration: 1200,
+            offset: '-=1000'
+        }).add({
+            targets: '.ml8 .bang1',
+            scale: [0, 1],
+            rotateZ: [30, 15],
+            duration: 1200,
+            offset: '-=1000'
+        }).add({
+            targets: '.ml8 .bang2',
+            scale: [0, 1],
+            rotateZ: [15, 15],
+            duration: 1200,
+            offset: '-=1000'
+        }).add({
+            targets: '.ml8',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1400
+        });
+
+    anime({
+        targets: '.ml8 .circle-dark-dashed',
+        rotateZ: 360,
+        duration: 8000,
+        easing: "linear",
+        loop: true
+    });
+</script>
+<script>
+    $(window).on('load', function () {
+        $('#loadingEl').remove();
+    })
+</script>

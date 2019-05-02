@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace BinaShop.Core.Models
 {
@@ -16,6 +17,7 @@ namespace BinaShop.Core.Models
         [Required, Display(Name = "דואר אלקטרוני"), EmailAddress]
         public string FromEmail { get; set; }
         [Required, Display(Name ="הקלד הודעה")]
+        [AllowHtml]
         public string Message { get; set; }
     }
 }

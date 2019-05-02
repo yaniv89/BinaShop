@@ -1,0 +1,71 @@
+﻿@model BinaShop.Core.ViewModels.ShopBannerViewModel
+
+@{
+    ViewBag.Title = "ערוך באנר";
+}
+<style>
+    .form-horizontal{
+        text-align:center;
+    }
+    #img{
+        height:300px;
+        width:75px;
+    }
+    #btn{
+        background-color:#afd3d3 !important;
+    }
+    .form-group{
+        text-align:center;
+    }
+    #mainPhoto{
+        width:300px;
+        display:inline;
+    }
+</style>
+<h2>ערוך באנר</h2>
+
+@using (Html.BeginForm("EditBanner", "ShopBanner", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div>
+        @Html.ActionLink("חזור לרשימה", "Index")
+    </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ShopBanner.Id)
+
+    <div class="col-sm-12">
+        <img id="img" class="img-fluid" src="~/Content/Banners/@Model.ShopBanner.Image" />
+
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12">
+            @Html.EditorFor(model => model.ShopBanner.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.ShopBanner.Name, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShopBanner.Link, new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.EditorFor(model => model.ShopBanner.Link, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ShopBanner.Link, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-sm-12" })
+        <div class="col-sm-12">
+            <input type="file" id="Banner" name="Banner" class="form-control" style="height:50px;" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <input type="submit" value="שמור" id="btn" class="btn btn-full" />
+        </div>
+    </div>
+</div>
+}
+
+

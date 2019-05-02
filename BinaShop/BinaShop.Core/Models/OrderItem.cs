@@ -9,6 +9,7 @@ namespace BinaShop.Core.Models
 {
     public class OrderItem : BaseEntity
     {
+        public Order Order { get; set; }
         [DisplayName("מספר הזמנה:")]
         public string OrderId{  get; set; }
         public string ProductId { get; set; }

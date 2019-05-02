@@ -9,6 +9,7 @@ namespace BinaShop.Core.Models
 {
     public abstract class BaseEntity
     {
+        [DisplayName("מספר זיהוי:")]
         public string Id { get; set; }
         [DisplayName("נוצרה:")]
         public DateTimeOffset CreatedAt { get; set; }
