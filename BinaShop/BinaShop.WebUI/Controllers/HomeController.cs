@@ -85,8 +85,8 @@ namespace BinaShop.WebUI.Controllers
             {
                 var body = "<p>דואר אלקטרוני מ: {0} ({1})</p><p>הודעה:</p><p>{2}</p>";
                 var message = new MailMessage();
-                message.To.Add(new MailAddress("yanivabu8@gmail.com"));  // replace with valid value 
-                message.From = new MailAddress("yanivabu8@gmail.com");  // replace with valid value
+                message.To.Add(new MailAddress("*****"));  // replace with valid value 
+                message.From = new MailAddress("*****");  // replace with valid value
                 message.Subject = "נושא: ";
                 message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
                 message.IsBodyHtml = true;
@@ -95,8 +95,8 @@ namespace BinaShop.WebUI.Controllers
                 {
                     var credential = new NetworkCredential
                     {
-                        UserName = "yanivabu8@gmail.com",  // replace with valid value
-                        Password = "Balalesh1939"  // replace with valid value
+                        UserName = "*****",  // replace with valid value
+                        Password = "*****"  // replace with valid value
                     };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp.gmail.com";
