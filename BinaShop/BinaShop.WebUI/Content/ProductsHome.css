@@ -23,18 +23,18 @@ h4 {
     font-weight: 600 !important;
     font-size: 9pt !important;
     margin-left: 0px;
-    background-image: linear-gradient(#f69226, #f27028) !important;
+    background-image: linear-gradient(181.59deg, #EDA892 7.81%, #FE5528 111.18%);
     box-shadow: none !important;
     border: 1px solid #f16a22 !important;
     border-radius: 5px !important;
     height: 30px !important;
     width: 90px !important;
-    padding-top:5px !important;
-    padding-bottom:5px !important;
-    padding-left:12px !important;
-    padding-right:5px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-left: 12px !important;
+    padding-right: 5px !important;
     text-align: end !important;
-   left:-24%;
+    left: -24%;
 }
 #carticon {
     position: absolute;
@@ -377,7 +377,7 @@ ul.pagination {
             font-size: 10pt !important;
             padding-right: 0px !important;
         }
-
+    
         #addtobasket {
             height: 21px !important;
             width: 114px !important;

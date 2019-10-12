@@ -78,24 +78,28 @@
             </ul>
         </div>
     </nav>
-    @foreach (var Banner in Model.ShopBanners.Where(x => x.Id == "76d75f41-ed81-47e5-b7a6-2497fdb59bdb"))
+    @foreach (var Banner in Model.ShopBanners)
     {
-        <div class="jumbotron jumbotron-fluid" id="background" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../../Content/Banners/@Banner.Image);">
+        if (Banner.Id == "76d75f41-ed81-47e5-b7a6-2497fdb59bdb")
+        {
+            <div class="jumbotron jumbotron-fluid" id="background" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(../../Content/Banners/@Banner.Image);">
 
-          
-                    <div class="row" id="logorow">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <img class="img-fluid" id="logo1" src="~/Content/0.png" />
-                            </div>
-                        </div>
-                    <div class="row" id="btnrow">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <a class="btn btn-full" href="/Account/Register">הרשם עכשיו</a>
-                            <a class="btn btn-ghost" href="/Home/Products">לחנות</a>
-                            </div>
-                        </div>
-                    
-        </div>
+
+                <div class="row" id="logorow">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <img class="img-fluid" id="logo1" src="~/Content/0.png" />
+                    </div>
+                </div>
+                <div class="row" id="btnrow">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <a class="btn btn-full" href="/Account/Register">הרשם עכשיו</a>
+                        <a class="btn btn-ghost" href="/Home/Products">לחנות</a>
+                    </div>
+                </div>
+
+            </div>
+        }
+
     }
     <div class="col-sm-12" id="col1">
         <div class="row">
@@ -150,7 +154,7 @@
                 {
                     <img class="img-fluid" src="~/Content/Banners/@Banner.Image" />
                 }
-                </div>
+            </div>
         </div>
     </div>
 

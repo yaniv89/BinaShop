@@ -164,7 +164,6 @@ h2:after {
     .main-nav li {
         display: inline-block;
         margin-right: 25px;
-        max-width: fit-content;
     }
 
         .main-nav li a:link,
@@ -175,13 +174,11 @@ h2:after {
             font-size: 90%;
             border-bottom: 2px solid transparent;
             transition: border-bottom 0.2s;
-            max-width: fit-content;
         }
 
         .main-nav li a:hover,
         .main-nav li a:active {
             border-bottom: 2px solid #fff;
-            max-width:fit-content;
         }
 
 .section-features {

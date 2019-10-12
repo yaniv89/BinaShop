@@ -26,22 +26,49 @@
                 <div class="col-lg-5 col-md-5 col-xl-5 col-sm-5 col-12" id="col2">
                     <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" id="name">
                         <h5 id="h2">@Html.DisplayFor(model => model.Name)</h5>
-                        <dl class="dl-horizontal">
+                        <div class="dl-horizontal">
 
-                            <dd id="price">
+                            <div id="price">
                                 ₪@Html.DisplayFor(model => model.Price)
-                            </dd>
-
-                            <dd id="description">
+                            </div>
+                            <div id="order-btn"><a href="@Url.Action("AddToBasket", "Basket", new {  Id = Model.Product.Id})" class="btn btn-full" id="addtobasket"><ion-icon name="cart" id="carticon"></ion-icon>הוסף לסל</a></div>
+                            <div id="description">
                                 @Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>"))
-                            </dd>
+                            </div>
+                            <div class="accordion" id="accordionExample">
+                                <div class="card" style="border: 0;border-top: 1px solid #DCBFB6;border-top-left-radius: 0;border-top-right-radius: 0;">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="title-card">
+                                            <button class="btn-delivery " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><ion-icon name="add" id="plus-icon"></ion-icon>
+                                                תנאי משלוח
+                                            </button>
+                                        </h2>
+                                    </div>
 
-                            <dt></dt>
-                            <dd><a href="@Url.Action("AddToBasket", "Basket", new {  Id = Model.Product.Id})" class="btn btn-full" id="addtobasket"><ion-icon name="cart" id="carticon"></ion-icon>הוסף לסל</a></dd>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card" style="border: 0; border-top: 1px solid #DCBFB6;border-top-left-radius: 0;border-top-right-radius: 0;">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="title-card">
+                                            <button class="btn-cancelation collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><ion-icon name="add" id="plus-icon"></ion-icon>
+                                                החזרים וביטולים
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <dt></dt>
 
-                        </dl>
+                        </div>
                     </div>
                 </div>
 
@@ -77,40 +104,8 @@
             </div>
         </div>
 
-            <div class="row" id="row2">
-                <span class="col-lg-3 col-md-3 col-xl-3 col-sm-3" id="row1"></span>
-                <div class="col-lg-9 col-md-9 col-xl-9 col-sm-9 col-12" id="rowundergal">
-                    <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" id="undergal">
-                        <div class="col-lg-11 col-md-11 col-xl-11 col-sm-11 col-10" id="colp">
-                            <p id="title">תרגישו נוח לקנות פה</p>
-                            <p id="pbody">באתר זה יש מדיניות ביטול הזמנה עד שבוע מיום ההזמנה והחזר כספי מלא!</p>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-xl-1 col-sm-1 col-2" id="iconp">
-                            <img src="~/Content/Images/100.png" />
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" id="undergal">
-                        <div class="col-lg-11 col-md-11 col-xl-11 col-sm-11 col-10" id="colp">
-                            <p id="title">שיטת תשלום מאובטחת של פייפאל</p>
-                            <p id="pbody">אתר זה לא שומר פרטי כרטיס אשראי וכל תהליך התשלום מבוצע באתר PayPal</p>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-xl-1 col-sm-1 col-2" id="iconp">
-                            <img src="~/Content/Images/פייפאל.png" />
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-12" id="undergal">
-                        <div class="col-lg-11 col-md-11 col-xl-11 col-sm-11 col-10" id="colp">
-                            <p id="title">משלוח עד 20 ימי עסקים</p>
-                            <p id="pbody">משלוח אמין עד בית הלקוח מחדרה עד גדרה, לא כולל מעבר לקו הירוק ומושבים</p>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-xl-1 col-sm-1 col-2" id="iconp">
-                            <img src="~/Content/Images/משאית משלוח.png" />
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+           
+    </div>
 
     <br />
     <br />
